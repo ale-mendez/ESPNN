@@ -165,10 +165,12 @@ def get_ionisation_projectile(name):
         return np.nan
 
 
+import random
+import torch
+
+
 def seed_everything(seed=42):
     """Sets all the necessary seeds"""
-    import random
-    import torch
 
     random.seed(seed)
     # os.environ['PYTHONHASHSEED'] = str(seed)
