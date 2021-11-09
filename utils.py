@@ -170,7 +170,11 @@ import torch
 
 
 def seed_everything(seed=42):
-    """Sets all the necessary seeds"""
+
+    """
+    Sets all the necessary seeds
+
+    """
 
     random.seed(seed)
     # os.environ['PYTHONHASHSEED'] = str(seed)
