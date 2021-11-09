@@ -2,7 +2,7 @@ import numpy as np
 import torch
 
 from .dataset import TestDataset
-from .utils import seed_everything
+from .utils import generate_custom_table, seed_everything
 from .SPNN import Model
 
 
