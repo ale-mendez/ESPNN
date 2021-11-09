@@ -3,7 +3,7 @@ import pandas as pd
 import pyvalem
 from pyvalem.formula import Formula
 
-from formula_mapper import formula_mapper
+from .formula_mapper import formula_mapper
 
 
 def generate_custom_table(
