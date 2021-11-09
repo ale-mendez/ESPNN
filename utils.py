@@ -107,6 +107,28 @@ def get_max_Z(name):
         return np.nan
 
 
+def get_mass_atoms_ratio(name):
+
+    if name in formula_mapper.keys():
+
+        name = formula_mapper[name]
+    if name.lower() == "d2o":
+        return 20 / 3
+
+    if name.lower() == "d2o":
+        return 2
+
+    try:
+
+        f = Formula(name)
+
+        return f.mass / f.natoms
+
+    except:
+
+        return np.nan
+
+
 ion_prop = pd.read_table("/content/input/ionization_energies_wiki.txt")
 ion_prop["Symbol"] = ion_prop["Symbol"].str.lstrip()
 
