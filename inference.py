@@ -24,7 +24,7 @@ def inference_fn(model, dataloader, device):
     return preds
 
 
-def run_inference(X_valid, fold, seed, device, verbose=False, **kwargs):
+def run_inference(X_valid, fold, seed, device, verbose=False, exp_name="default_exp"):
     """Executes inference on X_valid dataset"""
 
     seed_everything(seed)
