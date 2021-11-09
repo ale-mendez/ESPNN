@@ -35,7 +35,7 @@ def run_inference(X_valid, fold, seed, device, verbose=False, **kwargs):
         valid_dataset, batch_size=256, shuffle=False
     )
 
-    model = Model(num_features=X_valid.shape[1], num_targets=1, **kwargs)
+    model = Model(num_features=X_valid.shape[1], num_targets=1)
 
     model.to(device)
 
