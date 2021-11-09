@@ -163,3 +163,17 @@ def get_ionisation_projectile(name):
     except:
 
         return np.nan
+
+
+import random
+
+
+def seed_everything(seed=42):
+    """Sets all the necessary seeds"""
+
+    random.seed(seed)
+    # os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.backends.cudnn.deterministic = True
