@@ -1,5 +1,9 @@
 import numpy as np
 import pandas as pd
+import pyvalem
+from pyvalem.formula import Formula
+
+from formula_mapper import formula_mapper
 
 
 def generate_custom_table(
@@ -19,7 +23,7 @@ def generate_custom_table(
 
     """
 
-    ener_range = numpy.logspace(
+    ener_range = np.logspace(
         init_ener,
         end_ener,
         num=num_points,
@@ -40,3 +44,100 @@ def generate_custom_table(
     )
 
     df.to_csv(file_path)
+
+
+chem_prop = pd.read_csv("/content/input/chemicalProperties.csv")
+
+chem_prop[" Symbol"] = chem_prop[" Symbol"].str.lstrip()
+
+chem_prop_tab = chem_prop[[" Symbol", " Atomic_Number"]]
+
+chem_prop_tab.set_index(" Symbol", inplace=True)
+
+atomic_number_dict = chem_prop_tab.to_dict()[" Atomic_Number"]
+
+
+def get_Z_projectile(name):
+
+    try:
+
+        return atomic_number_dict[str(name)]
+
+    except:
+
+        return np.nan
+
+
+def get_mass(name):
+
+    if name in formula_mapper.keys():
+
+        name = formula_mapper[name]
+    if name.lower() == "d2o":
+        return 20
+
+    if name.lower() == "d2o":
+        return 4
+
+    try:
+
+        f = Formula(name)
+
+        return f.mass
+
+    except:
+
+        return np.nan
+
+
+def get_max_Z(name):
+
+    if name in formula_mapper.keys():
+
+        name = formula_mapper[name]
+
+    try:
+
+        f = Formula(name)
+
+        return max([atomic_number_dict[str(atom)] for atom in f.atoms])
+
+    except:
+
+        return np.nan
+
+
+ion_prop = pd.read_table("/content/input/ionization_energies_wiki.txt")
+ion_prop["Symbol"] = ion_prop["Symbol"].str.lstrip()
+
+ion_prop_tab = ion_prop[["Symbol", "1st"]]
+
+ion_prop_tab.set_index("Symbol", inplace=True)
+
+ionisation_dict = ion_prop_tab.to_dict()["1st"]
+
+
+def get_ionisation_projectile(name):
+
+    name = str(name)
+
+    target_dict = {
+        "C amorphous": "C",
+        "Graphite": "C",
+        "O2": "O",
+        "N2": "N",
+        "H2": "H",
+        "Havar": "Co",
+    }
+
+    if name in ["C amorphous", "O2", "N2", "H2", "Graphite", "Havar"]:
+
+        name = target_dict[name]
+
+    try:
+
+        return ionisation_dict[str(name)]
+
+    except:
+
+        return np.nan
