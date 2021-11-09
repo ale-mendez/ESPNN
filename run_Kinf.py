@@ -22,7 +22,7 @@ def run_k_fold(folds, target_cols, NFOLDS, seed, device, verbose=False, **kwargs
             ]
         ].values
 
-        oof_ = run_inference(X_valid, fold, seed, device, verbose, **kwargs)
+        oof_ = run_inference(X_valid, fold, seed, device, verbose, kwargs)
 
         oof[:, fold] = oof_[:, 0]
 
