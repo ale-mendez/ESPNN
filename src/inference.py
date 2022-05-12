@@ -2,7 +2,7 @@ import numpy as np
 import torch
 
 from .dataset import TestDataset
-from .utils import generate_custom_table, seed_everything
+from .utils import seed_everything
 from .SPNN import Model
 
 
@@ -24,7 +24,15 @@ def inference_fn(model, dataloader, device):
     return preds
 
 
-def run_inference(X_valid, fold, seed, device, verbose=False, exp_name="default_exp"):
+def run_inference(
+    X_valid,
+    fold,
+    seed,
+    device,
+    verbose=False,
+    model_dir="/model",
+    exp_name="default_exp",
+):
     """Executes inference on X_valid dataset"""
 
     seed_everything(seed)
@@ -41,7 +49,7 @@ def run_inference(X_valid, fold, seed, device, verbose=False, exp_name="default_
 
     model.load_state_dict(
         torch.load(
-            f"/content/weights/FOLD{fold}_{exp_name}.pth",
+            f"{model_dir}/FOLD{fold}_{exp_name}.pth",
             map_location=torch.device(device),
         )
     )
