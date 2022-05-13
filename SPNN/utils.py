@@ -1,14 +1,18 @@
+import os
+import sys
 import numpy as np
 import pandas as pd
-# import pyvalem
 from pyvalem.formula import Formula
-
-import os 
-from .data.formula_mapper import formula_mapper
+from SPNN.data.formula_mapper import formula_mapper
 import random
 import torch
 
+module_path = os.path.abspath(os.path.join('../SPNN/'))
+if module_path not in sys.path:
+    sys.path.append(module_path)
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
+
 
 def generate_custom_table(
     projectile_name,
@@ -20,11 +24,8 @@ def generate_custom_table(
     num_points,
     file_path,
 ):
-
     """
-
     Conveniency function to create an input table for the model.
-
     """
 
     ener_range = np.logspace(
@@ -76,7 +77,7 @@ def get_mass(name):
 
     if name in formula_mapper.keys():
         name = formula_mapper[name]
-        
+
     if name.lower() == "d2o":
         return 20
 

@@ -1,11 +1,11 @@
 import os
 import sys
 
-module_path = os.path.abspath(os.path.join('..'))
+module_path = os.path.abspath(os.path.join('../SPNN/'))
 if module_path not in sys.path:
     sys.path.append(module_path)
 
-from SPNN.src.run_SPNN import run_SPNN
+from SPNN.core import run_SPNN
 import pytest
 
 

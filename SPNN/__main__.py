@@ -1,14 +1,14 @@
 import os
 import sys
-module_path = os.path.abspath(os.path.join('.'))
 
+from SPNN.core import run_SPNN
+
+module_path = os.path.abspath(os.path.join("../SPNN/"))
 if module_path not in sys.path:
     sys.path.append(module_path)
 
-from .src.run_SPNN import run_SPNN
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     # Input parameters via terminal
     projectile = sys.argv[1]
@@ -20,4 +20,12 @@ if __name__ == '__main__':
         fin_ener_log = int(sys.argv[6])
         npoints = int(sys.argv[7])
 
-    run_SPNN(projectile, projectile_mass, target, target_mass, ini_ener_log, fin_ener_log, npoints)
+    run_SPNN(
+        projectile,
+        projectile_mass,
+        target,
+        target_mass,
+        ini_ener_log,
+        fin_ener_log,
+        npoints,
+    )

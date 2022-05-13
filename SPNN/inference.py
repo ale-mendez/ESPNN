@@ -2,12 +2,15 @@ import numpy as np
 import torch
 
 from .dataset import TestDataset
-from .utils import seed_everything
 from .SPNN import Model
+from .utils import seed_everything
 
 
 def inference_fn(model, dataloader, device):
-    "Given a model a data loader and a target device executes inference with the model on the dataloader"
+    """
+    Given a model a data loader and a target device executes inference with
+    the model on the dataloader
+    """
     model.eval()
     preds = []
 
