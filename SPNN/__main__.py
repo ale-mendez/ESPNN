@@ -2,6 +2,10 @@ import sys
 from SPNN.core import run_SPNN
 
 if __name__ == "__main__":
+    # Default parameters
+    ini_ener_log = -3
+    fin_ener_log = 1
+    npoints = 1000
 
     # Input parameters via terminal
     projectile = sys.argv[1]
