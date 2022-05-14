@@ -1,0 +1,11 @@
+include LICENSE
+include README.md
+recursive-include SPNN *.py
+recursive-include SPNN *.csv
+recursive-include SPNN *.txt
+recursive-include SPNN *.pth
+
+exclude tox.ini
+exclude requirements.txt
+recursive-exclude tests *
+recursive-exclude workflow *

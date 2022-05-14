@@ -1,30 +1,35 @@
+import os
+import sys
 import numpy as np
 import pandas as pd
-import pyvalem
 from pyvalem.formula import Formula
+from SPNN.data.formula_mapper import formula_mapper
+import random
+import torch
 
-from .formula_mapper import formula_mapper
+module_path = os.path.abspath(os.path.join("../SPNN/"))
+if module_path not in sys.path:
+    sys.path.append(module_path)
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
 def generate_custom_table(
-    target,
     projectile_name,
     projectile_mass,
-    t_atomic_mass,
-    init_ener,
+    target,
+    target_mass,
+    ini_ener,
     end_ener,
     num_points,
     file_path,
 ):
-
     """
-
     Conveniency function to create an input table for the model.
-
     """
 
     ener_range = np.logspace(
-        init_ener,
+        ini_ener,
         end_ener,
         num=num_points,
         endpoint=True,
@@ -35,18 +40,18 @@ def generate_custom_table(
 
     df = pd.DataFrame(
         {
-            "target": num_points * [target],
-            "projectile_name": num_points * [projectile_name],
+            "projectile": num_points * [projectile_name],
             "projectile_mass": num_points * [projectile_mass],
-            "t_atomic_mass": num_points * [t_atomic_mass],
+            "target": num_points * [target],
+            "target_mass": num_points * [target_mass],
             "normalized_energy": ener_range,
         }
     )
 
-    df.to_csv(file_path)
+    df.to_csv(file_path, index=False)
 
 
-chem_prop = pd.read_csv("/content/input/chemicalProperties.csv")
+chem_prop = pd.read_csv(f"{dir_path}/data/input/chemicalProperties.csv")
 
 chem_prop[" Symbol"] = chem_prop[" Symbol"].str.lstrip()
 
@@ -71,8 +76,8 @@ def get_Z_projectile(name):
 def get_mass(name):
 
     if name in formula_mapper.keys():
-
         name = formula_mapper[name]
+
     if name.lower() == "d2o":
         return 20
 
@@ -129,7 +134,7 @@ def get_mass_atoms_ratio(name):
         return np.nan
 
 
-ion_prop = pd.read_table("/content/input/ionization_energies_wiki.txt")
+ion_prop = pd.read_table(f"{dir_path}/data/input/ionization_energies_wiki.txt")
 ion_prop["Symbol"] = ion_prop["Symbol"].str.lstrip()
 
 ion_prop_tab = ion_prop[["Symbol", "1st"]]
@@ -165,10 +170,6 @@ def get_ionisation_projectile(name):
         return np.nan
 
 
-import random
-import torch
-
-
 def seed_everything(seed=42):
 
     """
@@ -184,3 +185,25 @@ def seed_everything(seed=42):
     torch.backends.cudnn.deterministic = True
 
     return None
+
+
+elem_prop = pd.read_csv(f"{dir_path}/data/input/chemicalProperties.csv")
+
+elem_prop[" Symbol"] = chem_prop[" Symbol"].str.lstrip()
+
+elem_prop_tab = chem_prop[[" Symbol", " Atomic_Number"]]
+
+elem_prop_tab.set_index(" Atomic_Number", inplace=True)
+
+number_symbol_dict = elem_prop_tab[" Symbol"].to_dict()
+
+
+def match_symbol_to_Z(num):
+
+    try:
+
+        return number_symbol_dict[int(num)]
+
+    except:
+
+        return "Unknown"

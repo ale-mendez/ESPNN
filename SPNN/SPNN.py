@@ -1,7 +1,5 @@
-import torch
 import torch.nn.functional as F
 from torch import nn
-from torch.utils.data.dataset import Dataset
 
 
 class Model(nn.Module):
@@ -19,26 +17,50 @@ class Model(nn.Module):
 
         self.batch_norm1 = nn.BatchNorm1d(num_features)
         self.dropout1 = nn.Dropout(drop_rate1)
-        self.dense1 = nn.utils.weight_norm(nn.Linear(num_features, hidden_size1))
+        self.dense1 = nn.utils.weight_norm(
+            nn.Linear(
+                num_features,
+                hidden_size1
+            )
+        )
 
         self.batch_norm2 = nn.BatchNorm1d(hidden_size1)
         self.dropout2 = nn.Dropout(drop_rate2)
-        self.dense2 = nn.utils.weight_norm(nn.Linear(hidden_size1, hidden_size2))
+        self.dense2 = nn.utils.weight_norm(
+            nn.Linear(
+                hidden_size1,
+                hidden_size2
+            )
+        )
 
         self.batch_norm3 = nn.BatchNorm1d(hidden_size2)
         self.dropout3 = nn.Dropout(drop_rate3)
-        self.dense3 = nn.utils.weight_norm(nn.Linear(hidden_size2, 128))
+        self.dense3 = nn.utils.weight_norm(
+            nn.Linear(
+                hidden_size2,
+                128
+            )
+        )
 
         self.batch_norm4 = nn.BatchNorm1d(64)
         self.dropout4 = nn.Dropout(drop_rate3)
-        self.dense4 = nn.utils.weight_norm(nn.Linear(128, hidden_size2))
+        self.dense4 = nn.utils.weight_norm(
+            nn.Linear(
+                128,
+                hidden_size2
+            )
+        )
 
         self.batch_norm5 = nn.BatchNorm1d(hidden_size2)
         self.dropout5 = nn.Dropout(drop_rate3)
-        self.dense5 = nn.utils.weight_norm(nn.Linear(hidden_size2, hidden_size1))
+        self.dense5 = nn.utils.weight_norm(
+            nn.Linear(
+                hidden_size2,
+                hidden_size1
+            )
+        )
 
         self.batch_norm6 = nn.BatchNorm1d(hidden_size1)
-
         self.dense6 = nn.Linear(hidden_size1, num_targets)
 
     def forward(self, x):

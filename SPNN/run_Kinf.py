@@ -1,8 +1,9 @@
 import numpy as np
+
 from .inference import run_inference
 
 
-def run_k_fold(folds, target_cols, NFOLDS, seed, device, verbose=False, **kwargs):
+def run_k_fold(folds, NFOLDS, seed, device, verbose=False, **kwargs):
     """Wraps run_inference to peform ensemble predictions"""
 
     valid_df = folds
@@ -13,7 +14,7 @@ def run_k_fold(folds, target_cols, NFOLDS, seed, device, verbose=False, **kwargs
 
         X_valid = valid_df[
             [
-                "t_atomic_mass",
+                "target_mass",
                 "projectile_mass",
                 "projectile_Z",
                 "Z_max",
