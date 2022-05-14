@@ -12,8 +12,8 @@ PATH = pathlib.Path(os.path.abspath(os.path.dirname(__file__)))
 
 REQUIREMENTS = [
     "matplotlib==3.5.2",
-    "numpy==1.22.3",
-    "pandas==1.4.2",
+    "numpy>=1.21.6",
+    "pandas>=1.3.5",
     "pyvalem==2.5.7",
     "torch==1.11.0",
 ]
