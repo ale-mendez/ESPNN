@@ -1,2 +1,2 @@
-projectile,projectile_mass,target,target_mass,normalized_energy,projectile_Z,target_ionisation,projectile_ionisation,Z_max,prediction,system
-H,1.0,H,1.008,10.0,1.0,1312.0,1312.0,1.0,0.09430693089962006,H_H
+projectile,target,normalized_energy,stopping power
+H,H,10.0,0.09430693089962006

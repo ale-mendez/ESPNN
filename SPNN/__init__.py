@@ -11,4 +11,6 @@ Stopping Power Neural Network
 # META
 # =============================================================================
 
-__version__ = "0.1"
+__version__ = "0.1.0"
+
+from SPNN.core import run_SPNN

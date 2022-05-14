@@ -33,11 +33,11 @@ class TestDataset(Dataset):
 
 class InferenceDataset(Dataset):
     """Receives a dataframe containing the following features in this order
-     - target atomic mass(amu)
-     - projectile atomic mass (amu)
-     - projectile Z
-     - target Z
-     - normalized stopping power (in MeV)
+    - target atomic mass(amu)
+    - projectile atomic mass (amu)
+    - projectile Z
+    - target Z
+    - normalized stopping power (in MeV)
     """
 
     def __init__(self, features):

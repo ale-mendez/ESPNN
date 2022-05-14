@@ -1,12 +1,7 @@
 import os
-import sys
-
-module_path = os.path.abspath(os.path.join('../SPNN/'))
-if module_path not in sys.path:
-    sys.path.append(module_path)
+import pytest
 
 from SPNN.core import run_SPNN
-import pytest
 
 
 @pytest.mark.parametrize(
@@ -42,8 +37,8 @@ def test_run_SPNN(
         plot
     )
     lines = [
-        'projectile,projectile_mass,target,target_mass,normalized_energy,projectile_Z,target_ionisation,projectile_ionisation,Z_max,prediction,system\n',
-        'H,1.0,H,1.008,10.0,1.0,1312.0,1312.0,1.0,0.09430693089962006,H_H\n'
+        'projectile,target,normalized_energy,stopping power\n',
+        'H,H,10.0,0.09430693089962006\n'
     ]
     i = 0
     filepath = os.path.join(fdir, filename)

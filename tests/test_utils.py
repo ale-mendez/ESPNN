@@ -1,13 +1,7 @@
-import os
-import sys
-
-module_path = os.path.abspath(os.path.join('../SPNN/'))
-if module_path not in sys.path:
-    sys.path.append(module_path)
-
-from SPNN.utils import generate_custom_table, get_Z_projectile, get_mass, get_max_Z, get_mass_atoms_ratio, get_ionisation_projectile, match_symbol_to_Z
 import pytest
 import numpy as np
+
+from SPNN.utils import generate_custom_table, get_Z_projectile, get_mass, get_max_Z, get_mass_atoms_ratio, get_ionisation_projectile, match_symbol_to_Z
 
 
 @pytest.mark.parametrize(

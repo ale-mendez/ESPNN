@@ -1,6 +1,4 @@
 import os
-import sys
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,10 +9,6 @@ from .utils import get_mass
 from .utils import get_max_Z
 from .utils import get_Z_projectile
 from .run_Kinf import run_k_fold
-
-module_path = os.path.abspath(os.path.join("../SPNN/"))
-if module_path not in sys.path:
-    sys.path.append(module_path)
 
 # Default HyperParameters:
 NFOLDS = 5
@@ -64,7 +58,7 @@ def run_SPNN(
         "Z_max",
         "projectile_Z",
         "normalized_energy",
-        "target_ionisation"
+        "target_ionisation",
     ]
     df[columns] = df[columns].astype(float)
 

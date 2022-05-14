@@ -7,7 +7,7 @@ from SPNN.data.formula_mapper import formula_mapper
 import random
 import torch
 
-module_path = os.path.abspath(os.path.join('../SPNN/'))
+module_path = os.path.abspath(os.path.join("../SPNN/"))
 if module_path not in sys.path:
     sys.path.append(module_path)
 

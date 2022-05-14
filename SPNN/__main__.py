@@ -1,12 +1,5 @@
-import os
 import sys
-
 from SPNN.core import run_SPNN
-
-module_path = os.path.abspath(os.path.join("../SPNN/"))
-if module_path not in sys.path:
-    sys.path.append(module_path)
-
 
 if __name__ == "__main__":
 
