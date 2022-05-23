@@ -19,18 +19,19 @@ def generate_custom_table(
     projectile_mass,
     target,
     target_mass,
-    ini_ener,
-    end_ener,
+    minE,
+    maxE,
     num_points,
-    file_path,
 ):
     """
     Conveniency function to create an input table for the model.
     """
-
+    
+    min_powerE = np.log10(minE)
+    max_powerE = np.log10(maxE)
     ener_range = np.logspace(
-        ini_ener,
-        end_ener,
+        min_powerE,
+        max_powerE,
         num=num_points,
         endpoint=True,
         base=10.0,
@@ -48,7 +49,7 @@ def generate_custom_table(
         }
     )
 
-    df.to_csv(file_path, index=False)
+    return df
 
 
 chem_prop = pd.read_csv(f"{dir_path}/data/input/chemicalProperties.csv")
