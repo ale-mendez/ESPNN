@@ -1,9 +1,10 @@
 # SPNN - Stopping Power Neural Network
 
-Introduction...
+The SPNN is a deep neural network that allows the user to predict the electronic stopping power cross-section for any ion and target[^1] combination for a wide range of incident energies. The deep neural network was trained with many tens of thousands curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the SPNN in this [publication](arxiv).
 
- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/SPNN/actions/workflows/spnn_ci.yml/badge.svg)](https://github.com/ale-mendez/SPNN/actions/workflows/spnn_ci.yml/badge.svg) 
- <!-- [![covdevel](http://codecov.io/)](http://codecov.io/)  -->
+[^1]: *SPNN first release considers only mono-atomic targets.*
+
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/SPNN/actions/workflows/spnn_ci.yml/badge.svg)](https://github.com/ale-mendez/SPNN/actions/workflows/spnn_ci.yml/badge.svg) [![covdevel](http://codecov.io/github/ale-mendez/SPNN/coverage.svg?branch=master)](http://codecov.io/github/ale-mendez/SPNN?branch=master) 
  <!-- [![Research software impact](http://depsy.org/api/package/pypi/)](http://depsy.org/package/python/) -->
 
 ### Citation
@@ -20,7 +21,7 @@ year = {2022}
 
 The simplest way to install the SPNN is using pip. Ubuntu users can do:
 ```console
-pip install SPNN
+~$ pip install SPNN
 ```
 
 ### Run SPNN in a notebook
@@ -41,8 +42,8 @@ SPNN.run_SPNN(projectile='H', projectile_mass=1.0, target='He', target_mass=4.00
 
 The package automatically produces ``matplotlib`` figure and a sample file named ``XY_prediction.dat``, where ``X`` is the name of the projectile and ``Y`` is the name of the target system.
 
-```python
-!ls
+```console
+~$ ls -a
 .  ..  HHe_prediction.dat  prediction.ipynb 
 ```
 
