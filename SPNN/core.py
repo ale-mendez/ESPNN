@@ -17,34 +17,57 @@ DEVICE = "cpu"
 BATCH_SIZE = 64
 exp_name = "try0__00_en_ioen_0_bhe_corrected_trtestsplit_tuple"
 dir_path = os.path.dirname(os.path.realpath(__file__))
-INPUT_FILE = f"{dir_path}/data/input/grid.csv"
+out_cols = {
+    "E": "Energy (MeV/amu)",
+    "SP": "Stopping power (MeV cm2/mg)"
+}
 
 
 def run_SPNN(
-    projectile=None,
-    projectile_mass=None,
-    target=None,
-    target_mass=None,
-    minlogE=-3,
-    maxlogE=1,
-    npoints=1000,
-    fdir="./",
-    plot=True,
+    projectile: str = None,
+    projectile_mass: int = None,
+    target: str = None,
+    target_mass: int = None,
+    emin: int = 0.001,
+    emax: int = 10,
+    npoints: int = 1000,
+    outdir: str = "./",
+    plot: bool = True,
 ):
+    """Compute SPNN prediction
 
-    generate_custom_table(
+    Parameters
+    ----------
+    projectile : str, optional
+        Projectile symbol, by default None
+    projectile_mass : int, optional
+        Projectile mass (amu), by default None
+    target : str, optional
+        Target symbol, by default None
+    target_mass : int, optional
+        Target mass (amu), by default None
+    emin : int, optional
+        Minimum grid-energy value (MeV/amu), by default 0.001
+    emax : int, optional
+        Maximum grid-energy value (MeV/amu), by default 10
+    npoints : int, optional
+        Number of grid-points, by default 1000
+    outdir : str, optional
+        _description_, by default "./"
+    plot : bool, optional
+        _description_, by default True
+    """
+
+    # Generate grid
+    df = generate_custom_table(
         projectile,
         projectile_mass,
         target,
         target_mass,
-        minlogE,
-        maxlogE,
+        emin,
+        emax,
         npoints,
-        INPUT_FILE,
     )
-
-    # Loading and adding features from tables
-    df = pd.read_csv(INPUT_FILE)
     df["projectile_Z"] = df["projectile"].apply(get_Z_projectile)
     df["target_ionisation"] = df["target"].apply(get_ionisation_projectile)
     df["projectile_ionisation"] = df["projectile"].apply(
@@ -81,20 +104,33 @@ def run_SPNN(
     for fold in range(NFOLDS):
         df_log[f"pred_{fold}"] = oof_[:, fold]
 
-    df["stopping power"] = np.mean(oof_, axis=1)
+    df["stopping_power"] = np.mean(oof_, axis=1)
     df["system"] = df["projectile"] + "_" + df["target"]
     for tup in df["system"].unique():
         df_tup = df.loc[df["system"] == tup]
 
-    # save dataframe with prediction to file
-    filepath = os.path.join(fdir, f"{projectile + target}_prediction.csv")
-    new_cols = ["projectile", "target", "normalized_energy", "stopping power"]
-    df_clean = df_tup[new_cols]
-    df_clean.to_csv(filepath, index=False)
+    # Save dataframe with prediction to file
+    filepath = os.path.join(outdir, f"{projectile + target}_prediction.dat")
+    df_out = pd.DataFrame(
+        {
+            out_cols["E"]: df_tup["normalized_energy"],
+            out_cols["SP"]: df_tup["stopping_power"]
+        }
+    )
+    df_out.to_csv(filepath, index=False, sep='\t')
 
-    # plot prediction
-    if plot:
-        plt.scatter(df_tup["normalized_energy"], df_tup["stopping power"])
-        plt.title(tup)
-        plt.xscale("log")
-        plt.show()
+    # Plot prediction
+    if plot is True:
+        plot_prediction(projectile, target, df_out)
+
+
+def plot_prediction(projectile, target, df):
+    e = out_cols['E']
+    sp = out_cols['SP']
+    title = ' '.join([projectile, "on", target])
+    plt.scatter(df[e], df[sp])
+    plt.title(title)
+    plt.xscale("log")
+    plt.xlabel("Energy (MeV/amu)")
+    plt.ylabel(r"Electronic Stopping Power (MeV cm$^2$/mg)")
+    plt.show()

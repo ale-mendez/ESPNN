@@ -1,13 +1,14 @@
 import pytest
 import numpy as np
+import pandas as pd
 
 from SPNN.utils import generate_custom_table, get_Z_projectile, get_mass, get_max_Z, get_mass_atoms_ratio, get_ionisation_projectile, match_symbol_to_Z
 
 
 @pytest.mark.parametrize(
-    "projectile, projectile_mass, target, target_mass, ini_ener, end_ener, num_points, file_path",
+    "projectile, projectile_mass, target, target_mass, emin, emax, npoints",
     [
-        ("H", 1, "H", 1, 1, 1, 1, f"tests/test_files/grid.csv"),
+        ("H", 1, "H", 1, 1, 1, 1),
     ],
 )
 def test_generate_custom_table(
@@ -15,33 +16,33 @@ def test_generate_custom_table(
     projectile_mass,
     target,
     target_mass,
-    ini_ener,
-    end_ener,
-    num_points,
-    file_path
+    emin,
+    emax,
+    npoints,
 ):
     """
     Testing generate_custom_table()
     """
-    generate_custom_table(
+    df = generate_custom_table(
         projectile,
         projectile_mass,
         target,
         target_mass,
-        ini_ener,
-        end_ener,
-        num_points,
-        file_path
+        emin,
+        emax,
+        npoints,
     )
-    lines = [
-        'projectile,projectile_mass,target,target_mass,normalized_energy\n',
-        'H,1.0,H,1.0,10.0\n'
-    ]
-    i = 0
-    with open(file_path, "r") as file:
-        line = file.readline()
-        i += 1
-        assert line == lines[i-1]
+    df_ = pd.DataFrame({
+        'projectile': ['H'],
+        'projectile_mass': [1],
+        'target': ['H'],
+        'target_mass': [1],
+        'normalized_energy': [1.0]
+    })
+    print(df)
+    print(df_)
+    for col in df.columns:
+        assert df_.loc[0][col] == df.loc[0][col]
 
 
 @pytest.mark.parametrize(
@@ -81,6 +82,20 @@ def test_get_mass(name):
     Testing get_mass() with valid name
     """
     assert get_mass(name) == 1.008
+
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        ("Cyclopropane"),
+    ],
+)
+def test_get_mass_compound(name):
+    """
+    Testing get_mass() with compound
+    """
+    assert get_mass(name) == 42.081
 
 
 @pytest.mark.parametrize(
