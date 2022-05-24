@@ -26,7 +26,7 @@ def generate_custom_table(
     """
     Conveniency function to create an input table for the model.
     """
-    
+
     min_powerE = np.log10(minE)
     max_powerE = np.log10(maxE)
     ener_range = np.logspace(

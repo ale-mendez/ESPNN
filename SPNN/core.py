@@ -18,20 +18,21 @@ BATCH_SIZE = 64
 exp_name = "try0__00_en_ioen_0_bhe_corrected_trtestsplit_tuple"
 dir_path = os.path.dirname(os.path.realpath(__file__))
 out_cols = {
-    "E": "Energy (MeV/amu)", 
+    "E": "Energy (MeV/amu)",
     "SP": "Stopping power (MeV cm2/mg)"
 }
 
+
 def run_SPNN(
-    projectile: str=None,
-    projectile_mass: int=None,
-    target: str=None,
-    target_mass: int=None,
-    emin: int=0.001,
-    emax: int=10,
-    npoints: int=1000,
-    outdir: str="./",
-    plot: bool=True,
+    projectile: str = None,
+    projectile_mass: int = None,
+    target: str = None,
+    target_mass: int = None,
+    emin: int = 0.001,
+    emax: int = 10,
+    npoints: int = 1000,
+    outdir: str = "./",
+    plot: bool = True,
 ):
     """Compute SPNN prediction
 
@@ -122,6 +123,7 @@ def run_SPNN(
     if plot is True:
         plot_prediction(projectile, target, df_out)
 
+
 def plot_prediction(projectile, target, df):
     e = out_cols['E']
     sp = out_cols['SP']
@@ -131,5 +133,4 @@ def plot_prediction(projectile, target, df):
     plt.xscale("log")
     plt.xlabel("Energy (MeV/amu)")
     plt.ylabel(r"Electronic Stopping Power (MeV cm$^2$/mg)")
-    
     plt.show()
