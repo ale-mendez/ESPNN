@@ -32,6 +32,6 @@ jobs:
     - name: Install pytest
       run: pip install pytest pytest-cov
     - name: Test with pytest
-      run: pytest tests/ --cov=SPNN --cov-append --cov-report=term-missing --cov-report xml:coverage.xml --cov-fail-under=80
+      run: pytest tests/ --cov=SPNN --cov-append --cov-report=term-missing --cov-report xml:coverage.xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
