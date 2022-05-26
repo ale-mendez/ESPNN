@@ -4,7 +4,7 @@ The ESPNN is a python-based deep neural network that allows the user to predict 
 
 [^1]: *ESPNN first release considers only mono-atomic targets.*
 
- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/spnn_ci.yml/badge.svg)](https://github.com/ale-mendez/SPNN/actions/workflows/espnn_ci.yml/badge.svg) [![covdevel](http://codecov.io/github/ale-mendez/ESPNN/coverage.svg?branch=master)](http://codecov.io/github/ale-mendez/ESPNN?branch=master) 
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/spnn_ci.yml/badge.svg)](https://github.com/ale-mendez/SPNN/actions/workflows/espnn_ci.yml/badge.svg) [![codecov](https://codecov.io/gh/ale-mendez/ESPNN/branch/master/graph/badge.svg?token=R49KN0O0I1)](https://codecov.io/gh/ale-mendez/ESPNN)
  <!-- [![Research software impact](http://depsy.org/api/package/pypi/)](http://depsy.org/package/python/) -->
 
 ### Citation
@@ -26,24 +26,25 @@ To use the ESPNN, we recommend using a python virtual environment. For example, 
 
 ### Install ESPNN
 
+Before installing the package you may want to give it a try on our [google colab](https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP). 
 #### Using pip
 
-The simplest way to install the ESPNN is via pip. Indistinctively, Ubuntu, Windows and macOS users can download the package by typing in the terminal or the anaconda bash terminal:
+The simplest way to install the ESPNN is via pip. Indistinctively, Ubuntu, Windows and macOS users can install the package by typing in the terminal or the anaconda bash terminal:
 ```console
-~$ pip install ESPNN
+$ pip install ESPNN
 ```
 
 #### Using this repository
 
 You can also install the ESPNN package by cloning or [downloading](https://github.com/ale-mendez/ESPNN/archive/refs/heads/master.zip) this repository. To clone (make sure you have git installed) this repo, use the following commands in your terminal/anaconda bash terminal:
 ```console
-~$ git clone https://github.com/ale-mendez/ESPNN.git
-~$ cd ESPNN
-~$ pip install ESPNN/
+$ git clone https://github.com/ale-mendez/ESPNN.git
+$ cd ESPNN
+$ pip install ESPNN/
 ```
 If you [downloaded](https://github.com/ale-mendez/ESPNN/archive/refs/heads/master.zip) the zip, change your directory to your download folder and, in your terminal/anaconda bash terminal, use
 ```console
-~$ pip install ESPNN-master.zip
+$ pip install ESPNN-master.zip
 ```
 
 ### Run ESPNN in a notebook
@@ -65,7 +66,7 @@ ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass
 The package automatically produces a ``matplotlib`` figure and a sample file named ``XY_prediction.dat``, where ``X`` is the name of the projectile and ``Y`` is the name of the target system.
 
 ```console
-~$ ls -a
+$ ls -a
 .  ..  HHe_prediction.dat  prediction.ipynb 
 ```
 
@@ -97,13 +98,13 @@ ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass
 The ESPNN package can also be used from terminal with a syntaxis analogous to the above given:
 
 ```console
-~$ python -m ESPNN He 4.002602 Au 196.966569
+$ python -m ESPNN He 4.002602 Au 196.966569
 ```
 
 Additional information about the optional arguments input can be obtained with the -h, --help flag:
 
 ```console
-~$ python -m ESPNN -h
+$ python -m ESPNN -h
 ```
 
 
