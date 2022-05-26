@@ -4,7 +4,7 @@ The ESPNN is a python-based deep neural network that allows the user to predict 
 
 [^1]: *ESPNN first release considers only mono-atomic targets.*
 
- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg)](https://github.com/ale-mendez/SPNN/actions/workflows/espnn_ci.yml/badge.svg) [![covdevel](http://codecov.io/github/ale-mendez/ESPNN/coverage.svg?branch=master)](http://codecov.io/github/ale-mendez/ESPNN?branch=master) 
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/spnn_ci.yml/badge.svg)](https://github.com/ale-mendez/SPNN/actions/workflows/espnn_ci.yml/badge.svg) [![covdevel](http://codecov.io/github/ale-mendez/ESPNN/coverage.svg?branch=master)](http://codecov.io/github/ale-mendez/ESPNN?branch=master) 
  <!-- [![Research software impact](http://depsy.org/api/package/pypi/)](http://depsy.org/package/python/) -->
 
 ### Citation
