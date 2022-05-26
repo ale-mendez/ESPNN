@@ -37,8 +37,8 @@ def test_run_SPNN(
         plot
     )
     lines = [
-        'projectile,target,normalized_energy,stopping power\n',
-        'H,H,10.0,0.09430693089962006\n'
+        'Energy (MeV/amu)	Stopping power (MeV cm2/mg)\n',
+        '1.0	0.7288954973220825\n'
     ]
     i = 0
     filepath = os.path.join(fdir, filename)
