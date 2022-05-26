@@ -23,7 +23,7 @@ out_cols = {
 }
 
 
-def run_SPNN(
+def run_NN(
     projectile: str = None,
     projectile_mass: int = None,
     target: str = None,
@@ -34,7 +34,7 @@ def run_SPNN(
     outdir: str = "./",
     plot: bool = True,
 ):
-    """Compute SPNN prediction
+    """Compute NN prediction for electronic stopping power
 
     Parameters
     ----------
