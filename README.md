@@ -43,7 +43,7 @@ You can also install the SPNN package by cloning or [downloading](https://github
 ```
 If you [downloaded](https://github.com/ale-mendez/SPNN/archive/refs/heads/master.zip) the zip, change your directory to your download folder and, in your terminal/anaconda bash terminal, use
 ```console
-~$ pip install SPNN.zip
+~$ pip install SPNN-master.zip
 ```
 
 ### Run SPNN in a notebook
