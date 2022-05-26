@@ -18,7 +18,7 @@ REQUIREMENTS = [
     "torch==1.11.0",
 ]
 
-with open(PATH / "SPNN" / "__init__.py") as fp:
+with open(PATH / "ESPNN" / "__init__.py") as fp:
     for line in fp.readlines():
         if line.startswith("__version__ = "):
             VERSION = line.split("=", 1)[-1].replace('"', "").strip()
@@ -33,9 +33,9 @@ with open("README.md", "r") as readme:
 # =============================================================================
 
 setup(
-    name="SPNN",
+    name="ESPNN",
     version="0.1.0",
-    description="Stoping Power Neural Network predictor",
+    description="Electronic Stoping Power Neural Network predictor",
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     author="""
@@ -48,7 +48,7 @@ setup(
     felipebihaiek@gmail.com,
     """,
     url="https://github.com/ale-mendez/SPNN",
-    packages=["SPNN", "SPNN.data"],
+    packages=["ESPNN", "ESPNN.data"],
     include_package_data=True,
     install_requires=REQUIREMENTS,
     license="The GPLv3 License",

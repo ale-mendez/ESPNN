@@ -3,13 +3,10 @@ import sys
 import numpy as np
 import pandas as pd
 from pyvalem.formula import Formula
-from SPNN.data.formula_mapper import formula_mapper
+from ESPNN.data.formula_mapper import formula_mapper
 import random
 import torch
 
-module_path = os.path.abspath(os.path.join("../SPNN/"))
-if module_path not in sys.path:
-    sys.path.append(module_path)
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 

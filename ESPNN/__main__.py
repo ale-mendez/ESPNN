@@ -1,6 +1,6 @@
 import sys
 import argparse
-from SPNN.core import run_SPNN
+from ESPNN.core import run_NN
 
 
 class DefaultHelpParser(argparse.ArgumentParser):
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    run_SPNN(
+    run_NN(
         projectile=args.X,
         projectile_mass=args.Xm,
         target=args.Y,

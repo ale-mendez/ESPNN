@@ -1,7 +1,7 @@
 import os
 import pytest
 
-from SPNN.core import run_SPNN
+from ESPNN.core import run_NN
 
 
 @pytest.mark.parametrize(
@@ -10,7 +10,7 @@ from SPNN.core import run_SPNN
         ("H", 1, "H", 1, 1, 1, 1, f"tests/test_files/", False, "HH_prediction.dat"),
     ],
 )
-def test_run_SPNN(
+def test_run_NN(
     projectile_name,
     projectile_mass,
     target,
@@ -23,9 +23,9 @@ def test_run_SPNN(
     filename
 ):
     """
-    Testing run_SPNN()
+    Testing run_NN()
     """
-    run_SPNN(
+    run_NN(
         projectile_name,
         projectile_mass,
         target,

@@ -2,7 +2,7 @@ import pytest
 import numpy as np
 import pandas as pd
 
-from SPNN.utils import generate_custom_table, get_Z_projectile, get_mass, get_max_Z, get_mass_atoms_ratio, get_ionisation_projectile, match_symbol_to_Z
+from ESPNN.utils import generate_custom_table, get_Z_projectile, get_mass, get_max_Z, get_mass_atoms_ratio, get_ionisation_projectile, match_symbol_to_Z
 
 
 @pytest.mark.parametrize(

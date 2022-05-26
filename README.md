@@ -1,10 +1,10 @@
-# SPNN - Stopping Power Neural Network
+# ESPNN - Electronic Stopping Power Neural Network
 
-The SPNN is a python-based deep neural network that allows the user to predict the electronic stopping power cross-section for any ion and target[^1] combination for a wide range of incident energies. The deep neural network was trained with many tens of thousands curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the SPNN in this [publication](arxiv).
+The ESPNN is a python-based deep neural network that allows the user to predict the electronic stopping power cross-section for any ion and target[^1] combination for a wide range of incident energies. The deep neural network was trained with many tens of thousands curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the ESPNN in this [publication](arxiv).
 
-[^1]: *SPNN first release considers only mono-atomic targets.*
+[^1]: *ESPNN first release considers only mono-atomic targets.*
 
- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/SPNN/actions/workflows/spnn_ci.yml/badge.svg)](https://github.com/ale-mendez/SPNN/actions/workflows/spnn_ci.yml/badge.svg) [![covdevel](http://codecov.io/github/ale-mendez/SPNN/coverage.svg?branch=master)](http://codecov.io/github/ale-mendez/SPNN?branch=master) 
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg)](https://github.com/ale-mendez/SPNN/actions/workflows/espnn_ci.yml/badge.svg) [![covdevel](http://codecov.io/github/ale-mendez/ESPNN/coverage.svg?branch=master)](http://codecov.io/github/ale-mendez/ESPNN?branch=master) 
  <!-- [![Research software impact](http://depsy.org/api/package/pypi/)](http://depsy.org/package/python/) -->
 
 ### Citation
@@ -18,37 +18,37 @@ year = {2022}
 ```
 ## Getting started
 
-To use the SPNN, we recommend using a python virtual environment. For example, [anaconda](https://docs.anaconda.com/anaconda/install/index.html) or [virtualenv](https://virtualenv.pypa.io/en/stable/installation.html). If you are not familiar with virtual environments and would like to rapidly start using python, follow the [anaconda](https://docs.anaconda.com/anaconda/install/index.html) indications according to your operating system:
+To use the ESPNN, we recommend using a python virtual environment. For example, [anaconda](https://docs.anaconda.com/anaconda/install/index.html) or [virtualenv](https://virtualenv.pypa.io/en/stable/installation.html). If you are not familiar with virtual environments and would like to rapidly start using python, follow the [anaconda](https://docs.anaconda.com/anaconda/install/index.html) indications according to your operating system:
 
 - <a href="https://docs.anaconda.com/anaconda/install/linux/" target="_blank">Install anaconda in Linux</a>
 - <a href="https://docs.anaconda.com/anaconda/install/windows/" target="_blank">Install anaconda in Windows</a>
 - <a href="https://docs.anaconda.com/anaconda/install/mac-os/" target="_blank">Install anaconda in macOS</a>
 
-### Install SPNN
+### Install ESPNN
 
 #### Using pip
 
-The simplest way to install the SPNN is via pip. Indistinctively, Ubuntu, Windows and macOS users can download the package by typing in the terminal or the anaconda bash terminal:
+The simplest way to install the ESPNN is via pip. Indistinctively, Ubuntu, Windows and macOS users can download the package by typing in the terminal or the anaconda bash terminal:
 ```console
-~$ pip install SPNN
+~$ pip install ESPNN
 ```
 
 #### Using this repository
 
-You can also install the SPNN package by cloning or [downloading](https://github.com/ale-mendez/SPNN/archive/refs/heads/master.zip) this repository. To clone (make sure you have git installed) this repo, use the following commands in your terminal/anaconda bash terminal:
+You can also install the ESPNN package by cloning or [downloading](https://github.com/ale-mendez/ESPNN/archive/refs/heads/master.zip) this repository. To clone (make sure you have git installed) this repo, use the following commands in your terminal/anaconda bash terminal:
 ```console
-~$ git clone https://github.com/ale-mendez/SPNN.git
-~$ cd SPNN
-~$ pip install SPNN/
+~$ git clone https://github.com/ale-mendez/ESPNN.git
+~$ cd ESPNN
+~$ pip install ESPNN/
 ```
-If you [downloaded](https://github.com/ale-mendez/SPNN/archive/refs/heads/master.zip) the zip, change your directory to your download folder and, in your terminal/anaconda bash terminal, use
+If you [downloaded](https://github.com/ale-mendez/ESPNN/archive/refs/heads/master.zip) the zip, change your directory to your download folder and, in your terminal/anaconda bash terminal, use
 ```console
-~$ pip install SPNN-master.zip
+~$ pip install ESPNN-master.zip
 ```
 
-### Run SPNN in a notebook
+### Run ESPNN in a notebook
 
-A basic tutorial of the SPNN package usage is given in [prediction.ipynb](workflow/prediction.ipynb). The package requires the following parameters as minimal input:
+A basic tutorial of the ESPNN package usage is given in [prediction.ipynb](workflow/prediction.ipynb). The package requires the following parameters as minimal input:
 
 - ``projectile``: Chemical formula for the projectile
 - ``projectile_mass``: Mass in amu for the projectile
@@ -56,8 +56,8 @@ A basic tutorial of the SPNN package usage is given in [prediction.ipynb](workfl
 - ``target_mass``: Mass in amu for the target
 
 ```python
-import SPNN
-SPNN.run_SPNN(projectile='He', projectile_mass=4.002602, target='Au', target_mass=196.966569)
+import ESPNN
+ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass=196.966569)
 ```
     
 ![png](docs/prediction_files/prediction_2_0.png)
@@ -71,7 +71,7 @@ The package automatically produces a ``matplotlib`` figure and a sample file nam
 
 #### Optional arguments:
 
-The energy grid used for the SPNN calculation can be customized with arguments
+The energy grid used for the ESPNN calculation can be customized with arguments
 
 - ``emin``: Minimum energy value in MeV/amu units (default: ``0.001``)
 - ``emax``: Maximum energy value in MeV/amu units (default: ``10``)
@@ -83,7 +83,7 @@ Furthermore, the figure plotting and output-file directory-path can be modified 
 
 
 ```python
-SPNN.run_SPNN(projectile='He', projectile_mass=4.002602, target='Au', target_mass=196.966569, emin=0.01, emax=1, npoints=50)
+ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass=196.966569, emin=0.01, emax=1, npoints=50)
 ```
 
 
@@ -92,18 +92,18 @@ SPNN.run_SPNN(projectile='He', projectile_mass=4.002602, target='Au', target_mas
     
 
 
-### Run SPNN from terminal
+### Run ESPNN from terminal
 
-The SPNN package can also be used from terminal with a syntaxis analogous to the above given:
+The ESPNN package can also be used from terminal with a syntaxis analogous to the above given:
 
 ```console
-~$ python -m SPNN He 4.002602 Au 196.966569
+~$ python -m ESPNN He 4.002602 Au 196.966569
 ```
 
 Additional information about the optional arguments input can be obtained with the -h, --help flag:
 
 ```console
-~$ python -m SPNN -h
+~$ python -m ESPNN -h
 ```
 
 

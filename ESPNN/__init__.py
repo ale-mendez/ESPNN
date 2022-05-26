@@ -3,8 +3,8 @@
 # =============================================================================
 
 """
-SPNN
-Stopping Power Neural Network
+ESPNN
+Electronic Stopping Power Neural Network
 """
 
 # =============================================================================
@@ -13,4 +13,4 @@ Stopping Power Neural Network
 
 __version__ = "0.1.0"
 
-from SPNN.core import run_SPNN
+from ESPNN.core import run_NN
