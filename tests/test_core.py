@@ -7,7 +7,7 @@ from SPNN.core import run_SPNN
 @pytest.mark.parametrize(
     "projectile_name, projectile_mass, target, target_mass, ini_ener, end_ener, num_points, fdir, plot, filename",
     [
-        ("H", 1, "H", 1, 1, 1, 1, f"tests/test_files/", False, "HH_prediction.csv"),
+        ("H", 1, "H", 1, 1, 1, 1, f"tests/test_files/", False, "HH_prediction.dat"),
     ],
 )
 def test_run_SPNN(
