@@ -117,6 +117,12 @@ def run_SPNN(
             out_cols["SP"]: df_tup["stopping_power"]
         }
     )
+
+    # Remove negative stopping power interpolations
+    df_out = df_out[df_out[out_cols["SP"]] >= 0]
+    if len(df_out) != len(df_tup):
+        print(f"emin: {emin} => {df_out.iloc[0][0]}")
+
     df_out.to_csv(filepath, index=False, sep='\t')
 
     # Plot prediction
@@ -128,9 +134,11 @@ def plot_prediction(projectile, target, df):
     e = out_cols['E']
     sp = out_cols['SP']
     title = ' '.join([projectile, "on", target])
-    plt.scatter(df[e], df[sp])
-    plt.title(title)
-    plt.xscale("log")
-    plt.xlabel("Energy (MeV/amu)")
-    plt.ylabel(r"Electronic Stopping Power (MeV cm$^2$/mg)")
+    fig, ax = plt.subplots(1, 1, figsize=(8 * 1.1, 6 * 1.1))
+    ax.scatter(df[e], df[sp])
+    ax.set_title(title, fontsize=20)
+    ax.set_xscale("log")
+    ax.set_xlabel(r"Energy (MeV/amu)", fontsize=18)
+    ax.set_ylabel(r"Electronic Stopping Power (MeV cm$^2$/mg)", fontsize=18)
+    ax.tick_params(axis='both', labelsize=14)
     plt.show()
