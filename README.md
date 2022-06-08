@@ -7,6 +7,7 @@ The ESPNN is a python-based deep neural network that allows the user to predict 
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/spnn_ci.yml/badge.svg)](https://github.com/ale-mendez/SPNN/actions/workflows/espnn_ci.yml/badge.svg) [![codecov](https://codecov.io/gh/ale-mendez/ESPNN/branch/master/graph/badge.svg?token=R49KN0O0I1)](https://codecov.io/gh/ale-mendez/ESPNN) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP)
  <!-- [![Research software impact](http://depsy.org/api/package/pypi/)](http://depsy.org/package/python/) -->
 
+ <!--
 ### Citation
 
 ```
@@ -14,7 +15,8 @@ The ESPNN is a python-based deep neural network that allows the user to predict 
 author = {F. Bivort Haiek, A. M. P. Mendez, C. C. Montanari, D. M. Mitnik},
 title = {ESPNN: The IAEA stopping power database neutral network. Part I: Monoatomic targets.},
 year = {2022}
-}
+}-->
+
 ```
 ## Getting started
 
@@ -24,9 +26,9 @@ To use the ESPNN, we recommend using a python virtual environment. For example, 
 - <a href="https://docs.anaconda.com/anaconda/install/windows/" target="_blank">Install anaconda in Windows</a>
 - <a href="https://docs.anaconda.com/anaconda/install/mac-os/" target="_blank">Install anaconda in macOS</a>
 
-### Install ESPNN
-
 Before installing the package you may want to give it a try on [Google Colab](https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP).
+
+### Install ESPNN
 #### Using pip
 
 The simplest way to install the ESPNN is via pip. Indistinctively, Ubuntu, Windows and macOS users can install the package by typing in the terminal or the anaconda bash terminal:
