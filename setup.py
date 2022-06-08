@@ -44,9 +44,7 @@ setup(
     Claudia Montanari,
     Dario Mitnik
     """,
-    author_email="""
-    felipebihaiek@gmail.com,
-    """,
+    author_email="felipebihaiek@gmail.com, alemdz.7@gmail.com",
     url="https://github.com/ale-mendez/SPNN",
     packages=["ESPNN", "ESPNN.data"],
     include_package_data=True,
