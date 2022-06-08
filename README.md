@@ -15,9 +15,10 @@ The ESPNN is a python-based deep neural network that allows the user to predict 
 author = {F. Bivort Haiek, A. M. P. Mendez, C. C. Montanari, D. M. Mitnik},
 title = {ESPNN: The IAEA stopping power database neutral network. Part I: Monoatomic targets.},
 year = {2022}
-}-->
 
 ```
+}-->
+
 ## Getting started
 
 To use the ESPNN, we recommend using a python virtual environment. For example, [anaconda](https://docs.anaconda.com/anaconda/install/index.html) or [virtualenv](https://virtualenv.pypa.io/en/stable/installation.html). If you are not familiar with virtual environments and would like to rapidly start using python, follow the [anaconda](https://docs.anaconda.com/anaconda/install/index.html) indications according to your operating system:
