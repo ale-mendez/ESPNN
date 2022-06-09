@@ -1,11 +1,12 @@
 include LICENSE
 include README.md
-recursive-include SPNN *.py
-recursive-include SPNN *.csv
-recursive-include SPNN *.txt
-recursive-include SPNN *.pth
+recursive-include ESPNN *.py
+recursive-include ESPNN *.csv
+recursive-include ESPNN *.txt
+recursive-include ESPNN *.pth
 
 exclude tox.ini
 exclude requirements.txt
 recursive-exclude tests *
 recursive-exclude workflow *
+recursive-exclude docs *
