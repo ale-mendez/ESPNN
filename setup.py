@@ -34,15 +34,15 @@ with open("README.md", "r") as readme:
 
 setup(
     name="ESPNN",
-    version="0.1.1",
-    description="Electronic Stoping Power Neural Network predictor",
+    version="0.1.2",
+    description="Electronic Stopping Power Neural Network predictor",
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     author="""
     Felipe Bivort Haiek,
     Alejandra Mendez,
     Claudia Montanari,
-    Dario Mitnik
+    Darío Mitnik
     """,
     author_email="felipebihaiek@gmail.com, alemdz.7@gmail.com",
     url="https://github.com/ale-mendez/SPNN",
@@ -56,7 +56,7 @@ setup(
         "Atoms",
         "Molecules",
         "Ions",
-        "Neural Neutwork",
+        "Neural Network",
     ],
     classifiers=[
         "Development Status :: 4 - Beta",
