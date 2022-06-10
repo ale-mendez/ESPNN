@@ -62,8 +62,8 @@ A basic tutorial of the ESPNN package usage is given in [prediction.ipynb](workf
 import ESPNN
 ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass=196.966569)
 ```
-    
-![png](docs/prediction_files/prediction_2_0.png)
+
+![](https://github.com/ale-mendez/ESPNN/blob/master/docs/prediction_files/prediction_2_0.png?raw=true)
 
 The package automatically produces a ``matplotlib`` figure and a sample file named ``XY_prediction.dat``, where ``X`` is the name of the projectile and ``Y`` is the name of the target system.
 
@@ -89,11 +89,7 @@ Furthermore, the figure plotting and output-file directory-path can be modified 
 ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass=196.966569, emin=0.01, emax=1, npoints=50)
 ```
 
-
-    
-![png](docs/prediction_files/prediction_4_0.png)
-    
-
+![](https://github.com/ale-mendez/ESPNN/blob/master/docs/prediction_files/prediction_4_0.png?raw=true)
 
 ### Run ESPNN from terminal
 
