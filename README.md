@@ -18,19 +18,19 @@ year = {2022}
 ```
 }-->
 
-You can use the ESPNN package [remotely](##run-ESPNN-online) or [locally](##run-ESPNN). Find below all the usage options available.
+You can use the ESPNN package [remotely](#run-ESPNN-online) or [locally](#install-espnn). Find below all the usage options available.
 
 ## Run ESPNN online
 
-The ESPNN package can be used remotely in the <a target="_blank" href="https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP">Google Colab</a> platform[^2]. There, you'll find a jupyter notebook with a quick tutorial on how to use the ESPNN. You can also make a copy of the notebook to your own personal Drive and compute the stopping power of any projectile-target combination.
+The ESPNN package can be used remotely in the <a href="https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP" target="_blank">Google Colab</a> platform[^2]. There, you'll find a jupyter notebook with a quick tutorial on how to use the ESPNN. You can also make a copy of the notebook to your own personal Drive and compute the stopping power of any projectile-target combination.
 
 ## Install ESPNN
 
-To use the ESPNN in your computer, you'll need to install it. We recommend using a python virtual environment to this end (for example, see [anaconda](https://docs.anaconda.com/anaconda/install/index.html) or [virtualenv](https://virtualenv.pypa.io/en/stable/installation.html)). If you are not familiar with virtual environments and would like to rapidly start using python, follow the [anaconda](https://docs.anaconda.com/anaconda/install/index.html) indications according to your operating system:
+To use the ESPNN in your computer, first you'll need to install it. We recommend using a python virtual environment to this end (for example, see <a href="https://docs.anaconda.com/anaconda/install/index.html" target="_blank">anaconda</a> or <a href="https://virtualenv.pypa.io/en/stable/installation.html" target="_blank">virtualenv</a>). If you are not familiar with virtual environments and would like to rapidly start using python, follow the <a href="https://docs.anaconda.com/anaconda/install/index.html" target="_blank">anaconda</a> indications according to your operating system:
 
-- <a target="_blank" href="https://docs.anaconda.com/anaconda/install/linux/" >Install anaconda in Linux</a>
-- <a target="_blank" href="https://docs.anaconda.com/anaconda/install/windows/" >Install anaconda in Windows</a>
-- <a target="_blank" href="https://docs.anaconda.com/anaconda/install/mac-os/">Install anaconda in macOS</a>
+- <a href="https://docs.anaconda.com/anaconda/install/linux/" target="_blank">Install anaconda in Linux</a>
+- <a href="https://docs.anaconda.com/anaconda/install/windows/" target="_blank">Install anaconda in Windows</a>
+- <a href="https://docs.anaconda.com/anaconda/install/mac-os/" target="_blank">Install anaconda in macOS</a>
 
 ### Using pip
 
@@ -51,12 +51,12 @@ If you [downloaded](https://github.com/ale-mendez/ESPNN/archive/refs/heads/maste
 $ pip install ESPNN-master.zip
 ```
 
-## Run ESPNN
+## Run ESPNN locally
 
-Once you've installed the ESPNN package in your preferred environment, you can run it by using a jupyter notebook or directly from terminal.
+Once you've [installed](#install-espnn) the ESPNN package in your preferred environment, you can run it by using a jupyter notebook or directly from terminal.
 ### Using a notebook
 
-A basic tutorial of the ESPNN package usage is given in [prediction.ipynb](https://github.com/ale-mendez/ESPNN/blob/master/workflow/prediction.ipynb). The package requires the following parameters as minimal input:
+A basic tutorial of the ESPNN package usage is given in <a href="https://github.com/ale-mendez/ESPNN/blob/master/workflow/prediction.ipynb" target="_blank">prediction.ipynb</a>. The package requires the following parameters as minimal input:
 
 - ``projectile``: Chemical formula for the projectile
 - ``projectile_mass``: Mass in amu for the projectile
