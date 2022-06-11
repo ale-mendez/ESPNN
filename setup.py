@@ -56,6 +56,7 @@ setup(
         "Atoms",
         "Molecules",
         "Ions",
+        "Machine Learning",
         "Neural Network",
     ],
     classifiers=[
