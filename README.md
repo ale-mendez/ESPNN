@@ -110,10 +110,9 @@ Additional information about the optional arguments input can be obtained with t
 $ python -m ESPNN -h
 ```
 
-
 ##  Funding Acknowledgements
 
-The following institutions financially support this work: the Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET) by the PICT-2020-SERIEA-01931 and the Agencia Nacional de Promoción Científica y Tecnológica (ANPCyT) of Argentina PIP-11220200102421CO. CCM also acknowledges the financial support of the IAEA.
+The following institutions financially support this work: the Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET) by the PIP-11220200102421CO and the Agencia Nacional de Promoción Científica y Tecnológica (ANPCyT) of Argentina PICT-2020-SERIEA-01931. CCM also acknowledges the financial support of the IAEA.
 
 
 [^1]: *ESPNN first release considers only mono-atomic targets.*
