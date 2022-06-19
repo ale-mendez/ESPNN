@@ -34,7 +34,7 @@ with open("README.md", "r") as readme:
 
 setup(
     name="ESPNN",
-    version="0.1.2",
+    version="0.1.3",
     description="Electronic Stopping Power Neural Network predictor",
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
