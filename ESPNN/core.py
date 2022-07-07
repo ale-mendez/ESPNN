@@ -24,9 +24,9 @@ out_cols = {
 
 
 def run_NN(
-    projectile: str = None,
-    projectile_mass: int = None,
-    target: str = None,
+    projectile: str,
+    target: str,
+    projectile_mass: int =None,
     target_mass: int = None,
     emin: int = 0.001,
     emax: int = 10,
@@ -38,12 +38,12 @@ def run_NN(
 
     Parameters
     ----------
-    projectile : str, optional
-        Projectile symbol, by default None
+    projectile : str
+        Projectile symbol
+    target : str
+        Target symbol
     projectile_mass : int, optional
-        Projectile mass (amu), by default None
-    target : str, optional
-        Target symbol, by default None
+        Projectile mass (amu)
     target_mass : int, optional
         Target mass (amu), by default None
     emin : int, optional
@@ -68,12 +68,20 @@ def run_NN(
         emax,
         npoints,
     )
-    df["projectile_Z"] = df["projectile"].apply(get_Z_projectile)
+    
+
+    df["projectile_mass"] = df["projectile"].apply(get_mass)
+    
+    
     df["target_ionisation"] = df["target"].apply(get_ionisation_projectile)
-    df["projectile_ionisation"] = df["projectile"].apply(
-        get_ionisation_projectile
-    )
-    df["target_mass"] = df["target"].apply(get_mass)
+
+
+    df["projectile_Z"] = df["projectile"].apply(get_Z_projectile)
+    
+    if target_mass is None:
+        df["target_mass"] = df["target"].apply(get_mass)
+    
+    
     df["Z_max"] = df["target"].apply(get_max_Z)
     columns = [
         "target_mass",

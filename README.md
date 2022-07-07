@@ -5,7 +5,6 @@
 
 The ESPNN is a python-based deep neural network that allows the user to predict the electronic stopping power cross-section for any ion and target[^1] combination for a wide range of incident energies. The deep neural network was trained with many tens of thousands curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the ESPNN in this [publication](https://github.com/ale-mendez/ESPNN-doc).
 
-
  <!--
 ### Citation
 
@@ -35,32 +34,41 @@ To use the ESPNN in your computer, first you'll need to install it. We recommend
 ### Using pip
 
 The simplest way to install the ESPNN is via pip. Indistinctively, Ubuntu, Windows and macOS users can install the package by typing in the terminal or the anaconda bash terminal:
+
 ```console
-$ pip install ESPNN
+pip install ESPNN
 ```
+
 ### Using this repository
 
 You can also install the ESPNN package by cloning or [downloading](https://github.com/ale-mendez/ESPNN/archive/refs/heads/master.zip) this repository. To clone (make sure you have git installed) this repo, use the following commands in your terminal/anaconda bash terminal:
+
 ```console
-$ git clone https://github.com/ale-mendez/ESPNN.git
-$ cd ESPNN
-$ pip install ESPNN/
+git clone https://github.com/ale-mendez/ESPNN.git
+cd ESPNN
+pip install ESPNN/
 ```
+
 If you [downloaded](https://github.com/ale-mendez/ESPNN/archive/refs/heads/master.zip) the zip, change your directory to your download folder and, in your terminal/anaconda bash terminal, type
+
 ```console
-$ pip install ESPNN-master.zip
+pip install ESPNN-master.zip
 ```
 
 ## Run ESPNN locally
 
 Once you've [installed](#install-espnn) the ESPNN package in your preferred environment, you can run it by using a jupyter notebook or directly from terminal.
+
 ### Using a notebook
 
-A basic tutorial of the ESPNN package usage is given in <a href="https://github.com/ale-mendez/ESPNN/blob/master/workflow/prediction.ipynb" target="_blank">prediction.ipynb</a>. The package requires the following parameters as minimal input:
+A basic tutorial of the ESPNN package usage is given in <a href="https://github.com/ale-mendez/ESPNN/blob/master/workflow/prediction.ipynb" target="_blank">prediction.ipynb</a>. The package requires the following parameters:
 
 - ``projectile``: Chemical formula for the projectile
-- ``projectile_mass``: Mass in amu for the projectile
 - ``target``: Chemical formula for the target
+
+And you can optionally provide this parameters:
+
+- ``projectile_mass``: Mass in amu for the projectile
 - ``target_mass``: Mass in amu for the target
 
 ```python
@@ -77,7 +85,7 @@ $ ls -a
 .  ..  HHe_prediction.dat  prediction.ipynb 
 ```
 
-#### Optional arguments:
+#### Optional arguments
 
 The energy grid used for the ESPNN calculation can be customized with arguments
 
@@ -86,9 +94,9 @@ The energy grid used for the ESPNN calculation can be customized with arguments
 - ``npoints``: Number of grid points (default: ``1000``)
 
 Furthermore, the figure plotting and output-file directory-path can be modified via
+
 - ``plot``: Prediction plot (default: ``True``)
 - ``outdir``: Path to output folder (default: ``"./"``)
-
 
 ```python
 ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass=196.966569, emin=0.01, emax=1, npoints=50)
@@ -101,19 +109,18 @@ ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass
 The ESPNN package can also be used from terminal with a syntaxis analogous to the above given:
 
 ```console
-$ python -m ESPNN He 4.002602 Au 196.966569
+python -m ESPNN He 4.002602 Au 196.966569
 ```
 
 Additional information about the optional arguments input can be obtained with the -h, --help flag:
 
 ```console
-$ python -m ESPNN -h
+python -m ESPNN -h
 ```
 
-##  Funding Acknowledgements
+## Funding Acknowledgements
 
 The following institutions financially support this work: the Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET) by the PIP-11220200102421CO and the Agencia Nacional de Promoción Científica y Tecnológica (ANPCyT) of Argentina PICT-2020-SERIEA-01931. CCM also acknowledges the financial support of the IAEA.
-
 
 [^1]: *ESPNN first release considers only mono-atomic targets.*
 [^2]: *A Google account is required.*
