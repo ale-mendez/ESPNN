@@ -20,9 +20,9 @@ if __name__ == "__main__":
     parser = DefaultHelpParser(usage=usage, add_help=False)
 
     parser.add_argument("X", help="Projectile name", type=str)
-    parser.add_argument("Xm", help="Projectile mass", type=float)
+    parser.add_argument("Xm", help="Projectile mass", type=float, default=None)
     parser.add_argument("Y", help="Target name", type=str)
-    parser.add_argument("Ym", help="Target mass", type=float)
+    parser.add_argument("Ym", help="Target mass", type=float, default=None)
     parser.add_argument(
         "-emin",
         dest="emin",

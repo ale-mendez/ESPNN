@@ -26,15 +26,15 @@ def test_run_NN(
     Testing run_NN()
     """
     run_NN(
-        projectile_name,
-        projectile_mass,
-        target,
-        target_mass,
-        ini_ener,
-        end_ener,
-        num_points,
-        fdir,
-        plot
+        projectile=projectile_name,
+        projectile_mass=projectile_mass,
+        target=target,
+        target_mass=target_mass,
+        emin=ini_ener,
+        emax=end_ener,
+        npoints=num_points,
+        outdir=fdir,
+        plot=plot
     )
     lines = [
         'Energy (MeV/amu)	Stopping power (MeV cm2/mg)\n',
