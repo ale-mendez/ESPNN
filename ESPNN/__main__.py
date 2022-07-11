@@ -12,17 +12,18 @@ class DefaultHelpParser(argparse.ArgumentParser):
 
 if __name__ == "__main__":
 
-    basic_usage = "python -m SPNN [X] [Xm] [Y] [Ym]"
+    basic_usage = "python -m ESPNN [X] [Y]"
+    custom_mass = "[-Ym YM]"
     custom_ener = " [-emin EMIN] [-emax EMAX] [-npoints NPOINTS] "
     custom_output = "[--plot PLOT] [--outdir OUTDIR]"
-    usage = ''.join([basic_usage, custom_ener, custom_output])
+    usage = ''.join([basic_usage, custom_mass,custom_ener, custom_output])
     # parser = argparse.ArgumentParser(usage=usage, add_help=False)
     parser = DefaultHelpParser(usage=usage, add_help=False)
 
     parser.add_argument("X", help="Projectile name", type=str)
-    parser.add_argument("Xm", help="Projectile mass", type=float, default=None)
     parser.add_argument("Y", help="Target name", type=str)
-    parser.add_argument("Ym", help="Target mass", type=float, default=None)
+    parser.add_argument("-Ym", help="Target mass", type=float, default=None)
+    parser.add_argument("-Xm", help="Projectile mass", type=float, default=None)
     parser.add_argument(
         "-emin",
         dest="emin",
