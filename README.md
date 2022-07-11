@@ -109,7 +109,7 @@ ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass
 The ESPNN package can also be used from terminal with a syntaxis analogous to the above given:
 
 ```console
-python -m ESPNN He 4.002602 Au 196.966569
+python -m ESPNN H Au -Ym 196.966569
 ```
 
 Additional information about the optional arguments input can be obtained with the -h, --help flag:
