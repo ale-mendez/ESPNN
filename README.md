@@ -66,7 +66,7 @@ A basic tutorial of the ESPNN package usage is given in <a href="https://github.
 - ``projectile``: Chemical formula for the projectile
 - ``target``: Chemical formula for the target
 
-And you can optionally provide this parameters:
+Optionally, you can provide these parameters:
 
 - ``projectile_mass``: Mass in amu for the projectile
 - ``target_mass``: Mass in amu for the target
@@ -81,11 +81,11 @@ ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass
 The package automatically produces a ``matplotlib`` figure and a sample file named ``XY_prediction.dat``, where ``X`` is the name of the projectile and ``Y`` is the name of the target system.
 
 ```console
-$ ls -a
+ls -a
 .  ..  HHe_prediction.dat  prediction.ipynb 
 ```
 
-#### Optional arguments
+#### Other optional arguments
 
 The energy grid used for the ESPNN calculation can be customized with arguments
 
