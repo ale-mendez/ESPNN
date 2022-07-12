@@ -42,10 +42,15 @@ def run_inference(
 
     # from sklearn.preprocessing import StandardScaler
 
-    # import joblib
 
-    # scaler= joblib.load( f"{model_dir}/scaler_FOLD{fold}_{exp_name}.zip")
+    # scaler= joblib.load( f"{model_dir}/preprocess/scaler_FOLD{fold}_{exp_name}.zip")
  
+    import joblib
+
+    scaler = joblib.load( f"{model_dir}/preprocess/std_scaler.zip")
+ 
+    X_valid = scaler.transform(X_valid)
+
     valid_dataset = TestDataset(X_valid)
 
     validloader = torch.utils.data.DataLoader(
@@ -58,7 +63,7 @@ def run_inference(
 
     model.load_state_dict(
         torch.load(
-            f"{model_dir}/FOLD{fold}_{exp_name}.pth",
+            f"{model_dir}/weights/FOLD{fold}_{exp_name}.pth",
             map_location=torch.device(device),
         )
     )

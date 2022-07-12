@@ -15,7 +15,7 @@ NFOLDS = 5
 SEED = np.random.randint(0, 12347, NFOLDS)
 DEVICE = "cpu"
 BATCH_SIZE = 64
-exp_name = "try0__00_en_ioen_0_bhe_corrected_trtestsplit_tuple"
+exp_name = "try0__00_en_ioen_0_bhe_corrected_trtestsplit_tuple_reduxdrop_nobias_yeslog_standard4all_dbscan2_mid_20_randomsplit"
 dir_path = os.path.dirname(os.path.realpath(__file__))
 out_cols = {
     "E": "Energy (MeV/amu)",
@@ -96,7 +96,7 @@ def run_NN(
     # Transform to logarithmic incident energy
     df_log = df.copy()
     df_log["normalized_energy"] = np.log(df["normalized_energy"].values)
-    params = {"exp_name": exp_name, "model_dir": f"{dir_path}/data/weights"}
+    params = {"exp_name": exp_name, "model_dir": f"{dir_path}/data"}
 
     # Averaging on multiple SEEDS
     for seed in SEED:
