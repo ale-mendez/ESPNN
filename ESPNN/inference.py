@@ -40,6 +40,12 @@ def run_inference(
 
     seed_everything(seed)
 
+    # from sklearn.preprocessing import StandardScaler
+
+    # import joblib
+
+    # scaler= joblib.load( f"{model_dir}/scaler_FOLD{fold}_{exp_name}.zip")
+ 
     valid_dataset = TestDataset(X_valid)
 
     validloader = torch.utils.data.DataLoader(
