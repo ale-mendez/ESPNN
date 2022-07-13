@@ -9,7 +9,6 @@ from setuptools import setup
 
 PATH = pathlib.Path(os.path.abspath(os.path.dirname(__file__)))
 
-
 REQUIREMENTS = [
     "matplotlib==3.5.2",
     "numpy>=1.21.6",
@@ -34,7 +33,7 @@ with open("README.md", "r") as readme:
 
 setup(
     name="ESPNN",
-    version="0.1.5",
+    version=VERSION,
     description="Electronic Stopping Power Neural Network predictor",
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
