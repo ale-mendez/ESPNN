@@ -8,5 +8,4 @@ dist/
 build/
 workflow/*.dat
 coverage.xml
-tests/test_files/*.dat
 cheetsheet*
