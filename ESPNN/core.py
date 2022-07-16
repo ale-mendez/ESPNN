@@ -26,7 +26,7 @@ out_cols = {
 def run_NN(
     projectile: str,
     target: str,
-    projectile_mass: int =None,
+    projectile_mass: int = None,
     target_mass: int = None,
     emin: int = 0.001,
     emax: int = 10,
@@ -68,20 +68,16 @@ def run_NN(
         emax,
         npoints,
     )
-    
 
     df["projectile_mass"] = df["projectile"].apply(get_mass)
-    
-    
+
     df["target_ionisation"] = df["target"].apply(get_ionisation_projectile)
 
-
     df["projectile_Z"] = df["projectile"].apply(get_Z_projectile)
-    
+
     if target_mass is None:
         df["target_mass"] = df["target"].apply(get_mass)
-    
-    
+
     df["Z_max"] = df["target"].apply(get_max_Z)
     columns = [
         "target_mass",
@@ -117,7 +113,7 @@ def run_NN(
     for tup in df["system"].unique():
         df_tup = df.loc[df["system"] == tup]
     df_tup = df_tup.dropna(axis=0, subset=['stopping_power'])
-    if len(df_tup) == 0: 
+    if len(df_tup) == 0:
         raise ValueError(f"No values found for {projectile } + {target} collisional system")
 
     # Save dataframe with prediction to file
@@ -134,7 +130,7 @@ def run_NN(
         df_out = df_out[df_out[out_cols["SP"]] >= 0]
     except:
         pass
-    
+
     # 2. Remove unphysical interpolation in the low energy region (up to 0.2 MeV/amu)
     try:
         df_lowE = df_out.loc[df_out[out_cols['E']] < 0.2]
@@ -142,18 +138,17 @@ def run_NN(
         y = df_lowE[out_cols['SP']]
         dy = np.gradient(y)
         # find zeros (of derivative)
-        zeros = [x[i+1] for i, (xi, dyi) in enumerate(zip(x[:-1], dy[:-1])) if (dyi * dy[i+1] < 0)]
+        zeros = [x[i + 1] for i, (xi, dyi) in enumerate(zip(x[:-1], dy[:-1])) if (dyi * dy[i + 1] < 0)]
         # find value of energy at minimum SP value
         x_ymin = [xi for xi, yi in zip(x, y) if yi == min(y)][0]
         emin2 = [xi for xi in zeros if (x_ymin * 0.5 <= xi <= x_ymin + x_ymin * 1.5)][0]
         df_out = df_out[df_out[out_cols["E"]] >= emin2]
     except:
         pass
-    
+
     if len(df_out) != len(df_tup):
         new_emin = df_out.iloc[0][0]
         print(f"emin: {emin} => {new_emin:.3f}")
-
 
     df_out.to_csv(filepath, index=False, sep='\t')
 
