@@ -16,7 +16,7 @@ if __name__ == "__main__":
     custom_mass = "[-Ym YM]"
     custom_ener = " [-emin EMIN] [-emax EMAX] [-npoints NPOINTS] "
     custom_output = "[--plot PLOT] [--outdir OUTDIR]"
-    usage = ''.join([basic_usage, custom_mass,custom_ener, custom_output])
+    usage = ''.join([basic_usage, custom_mass, custom_ener, custom_output])
     # parser = argparse.ArgumentParser(usage=usage, add_help=False)
     parser = DefaultHelpParser(usage=usage, add_help=False)
 
