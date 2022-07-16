@@ -135,20 +135,22 @@ def run_NN(
     except:
         pass
     
+    if (target in ('Ta','Gd')) and (projectile in ('H','He')): 
+    
     # 2. Remove unphysical interpolation in the low energy region (up to 0.2 MeV/amu)
-    try:
-        df_lowE = df_out.loc[df_out[out_cols['E']] < 0.2]
-        x = df_lowE[out_cols['E']]
-        y = df_lowE[out_cols['SP']]
-        dy = np.gradient(y)
-        # find zeros (of derivative)
-        zeros = [x[i+1] for i, (xi, dyi) in enumerate(zip(x[:-1], dy[:-1])) if (dyi * dy[i+1] < 0)]
-        # find value of energy at minimum SP value
-        x_ymin = [xi for xi, yi in zip(x, y) if yi == min(y)][0]
-        emin2 = [xi for xi in zeros if (x_ymin * 0.5 <= xi <= x_ymin + x_ymin * 1.5)][0]
-        df_out = df_out[df_out[out_cols["E"]] >= emin2]
-    except:
-        pass
+        try:
+            df_lowE = df_out.loc[(df_out[out_cols['E']] ]
+            x = df_lowE[out_cols['E']]
+            y = df_lowE[out_cols['SP']]
+            dy = np.gradient(y)
+            # find zeros (of derivative)
+            zeros = [x[i+1] for i, (xi, dyi) in enumerate(zip(x[:-1], dy[:-1])) if (dyi * dy[i+1] < 0)]
+            # find value of energy at minimum SP value
+            x_ymin = [xi for xi, yi in zip(x, y) if yi == min(y)][0]
+            emin2 = [xi for xi in zeros if (x_ymin * 0.5 <= xi <= x_ymin + x_ymin * 1.5)][0]
+            df_out = df_out[df_out[out_cols["E"]] >= emin2]
+        except:
+            pass
     
     if len(df_out) != len(df_tup):
         new_emin = df_out.iloc[0][0]
