@@ -135,7 +135,7 @@ def run_NN(
 
         # 2. Remove unphysical interpolation in the low energy region (up to 0.2 MeV/amu)
         try:
-            df_lowE = df_out.loc[df_out[out_cols['E']]]
+            df_lowE = df_out.loc[df_out[out_cols['E']] <= 0.2]
             x = df_lowE[out_cols['E']]
             y = df_lowE[out_cols['SP']]
             dy = np.gradient(y)
