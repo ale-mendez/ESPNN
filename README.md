@@ -3,6 +3,7 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg)](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg) [![codecov](https://codecov.io/gh/ale-mendez/ESPNN/branch/master/graph/badge.svg?token=R49KN0O0I1)](https://codecov.io/gh/ale-mendez/ESPNN) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP)
  <!-- [![Research software impact](http://depsy.org/api/package/pypi/)](http://depsy.org/package/python/) -->
 
+
 The ESPNN is a python-based deep neural network that allows the user to predict the electronic stopping power cross-section for any ion and target[^1] combination for a wide range of incident energies. The deep neural network was trained with many tens of thousands curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the ESPNN in this [publication](https://github.com/ale-mendez/ESPNN-doc).
 
  <!--
@@ -19,9 +20,13 @@ year = {2022}
 
 You can use the ESPNN package [remotely](#run-ESPNN-online) or [locally](#install-espnn). Find below all the usage options available.
 
+*Update (7/2022): WORK IN PROGRESS*
+
+We are working on an update for the ESPNN model. We expect the new version to be ready in August 2022. If you notice some troubling features in the stopping power, make sure to post an [issue](https://github.com/ale-mendez/ESPNN/issues) or send us and email[^2].
+
 ## Run ESPNN online
 
-The ESPNN package can be used remotely in the <a href="https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP" target="_blank">Google Colab</a> platform[^2]. There, you'll find a jupyter notebook with a quick tutorial on how to use the ESPNN. You can also make a copy of the notebook to your own personal Drive and compute the stopping power of any projectile-target combination.
+The ESPNN package can be used remotely in the <a href="https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP" target="_blank">Google Colab</a> platform[^3]. There, you'll find a jupyter notebook with a quick tutorial on how to use the ESPNN. You can also make a copy of the notebook to your own personal Drive and compute the stopping power of any projectile-target combination.
 
 ## Install ESPNN
 
@@ -123,4 +128,5 @@ python -m ESPNN -h
 The following institutions financially support this work: the Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET) by the PIP-11220200102421CO and the Agencia Nacional de Promoción Científica y Tecnológica (ANPCyT) of Argentina PICT-2020-SERIEA-01931. CCM also acknowledges the financial support of the IAEA.
 
 [^1]: *ESPNN first release considers only mono-atomic targets.*
-[^2]: *A Google account is required.*
+[^2]: felipebihaiek@gmail.com, alemdz.7@gmail.com
+[^3]: *A Google account is required.*
