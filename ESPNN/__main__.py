@@ -40,7 +40,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-npoints",
         dest="npoints",
-        default=1000,
+        default=500,
         type=int,
         help="Number of grid points (default: 1000)"
     )

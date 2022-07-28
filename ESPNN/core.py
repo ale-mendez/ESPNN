@@ -29,7 +29,7 @@ def run_NN(
     target_mass: int = None,
     emin: int = 0.001,
     emax: int = 10,
-    npoints: int = 1000,
+    npoints: int = 500,
     outdir: str = "./",
     plot: bool = True,
 ):
@@ -48,7 +48,7 @@ def run_NN(
     emax : int, optional
         Maximum grid-energy value (MeV/amu), by default 10
     npoints : int, optional
-        Number of grid-points, by default 1000
+        Number of grid-points, by default 500
     outdir : str, optional
         _description_, by default "./"
     plot : bool, optional
