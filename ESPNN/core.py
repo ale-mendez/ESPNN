@@ -15,7 +15,7 @@ NFOLDS = 5
 SEED = np.random.randint(0, 12347, NFOLDS)
 DEVICE = "cpu"
 BATCH_SIZE = 64
-exp_name = "try0__00_en_ioen_0_bhe_corrected_trtestsplit_tuple_reduxdrop_nobias_yeslog_standard4all_dbscan2_mid_20_randomsplit"
+exp_name = "try0__00_en_ioen_0_bhe_corrected_trtestsplit_tuple_reduxdrop_nobias_yeslog_standard4all_dbscan2_mid_30_randomsplit_FORCEprojMASSall"
 dir_path = os.path.dirname(os.path.realpath(__file__))
 out_cols = {
     "E": "Energy (MeV/amu)",
@@ -30,7 +30,7 @@ def run_NN(
     target_mass: int = None,
     emin: int = 0.001,
     emax: int = 10,
-    npoints: int = 1000,
+    npoints: int = 500,
     outdir: str = "./",
     plot: bool = True,
 ):
