@@ -146,7 +146,7 @@ def run_NN(
 
     if len(df_out) != len(df_tup):
         new_emin = df_out.iloc[0][0]
-        print(f"emin: {emin} => {new_emin:.3f}")
+        print(f"emin: {emin} => {new_emin:.4f}")
 
     df_out.to_csv(filepath, index=False, sep='\t')
 

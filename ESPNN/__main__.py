@@ -13,7 +13,7 @@ class DefaultHelpParser(argparse.ArgumentParser):
 if __name__ == "__main__":
 
     basic_usage = "python -m ESPNN [X] [Y]"
-    custom_mass = "[-Ym YM]"
+    custom_mass = " [-Ym YM]"
     custom_ener = " [-emin EMIN] [-emax EMAX] [-npoints NPOINTS] "
     custom_output = "[--plot PLOT] [--outdir OUTDIR]"
     usage = ''.join([basic_usage, custom_mass, custom_ener, custom_output])
@@ -42,7 +42,7 @@ if __name__ == "__main__":
         dest="npoints",
         default=500,
         type=int,
-        help="Number of grid points (default: 1000)"
+        help="Number of grid points (default: 500)"
     )
     parser.add_argument(
         "--plot",
