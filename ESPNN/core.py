@@ -153,8 +153,7 @@ def plot_prediction(projectile, target, df):
     sp = out_cols['SP']
     title = ' '.join([projectile, "on", target])
     fig, ax = plt.subplots(1, 1, figsize=(8 * 1.1, 6 * 1.1))
-    print('HERE')
-    print(len(df))
+  
 
     ax.scatter(df[e], df[sp],marker='.')
     ax.set_title(title, fontsize=20)
