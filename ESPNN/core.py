@@ -30,7 +30,7 @@ def run_NN(
     target_mass: int = None,
     emin: int = 0.001,
     emax: int = 10,
-    npoints: int = 500,
+    npoints: int = 150,
     outdir: str = "./",
     plot: bool = True,
 ):
@@ -153,10 +153,13 @@ def plot_prediction(projectile, target, df):
     sp = out_cols['SP']
     title = ' '.join([projectile, "on", target])
     fig, ax = plt.subplots(1, 1, figsize=(8 * 1.1, 6 * 1.1))
-    ax.scatter(df[e], df[sp])
+    print('HERE')
+    print(len(df))
+
+    ax.scatter(df[e], df[sp],marker='.')
     ax.set_title(title, fontsize=20)
     ax.set_xscale("log")
-    ax.set_xlabel(r"Energy (MeV/amu)", fontsize=18)
+    ax.set_xlabel(r"Energy (MeV/amu)", fontsize= 8)
     ax.set_ylabel(r"Electronic Stopping Power (MeV cm$^2$/mg)", fontsize=18)
     ax.tick_params(axis='both', labelsize=14)
     plt.show()
