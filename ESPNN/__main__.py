@@ -23,7 +23,6 @@ if __name__ == "__main__":
     parser.add_argument("X", help="Projectile name", type=str)
     parser.add_argument("Y", help="Target name", type=str)
     parser.add_argument("-Ym", help="Target mass", type=float, default=None)
-    parser.add_argument("-Xm", help="Projectile mass", type=float, default=None)
     parser.add_argument(
         "-emin",
         dest="emin",
@@ -68,7 +67,6 @@ if __name__ == "__main__":
 
     run_NN(
         projectile=args.X,
-        projectile_mass=args.Xm,
         target=args.Y,
         target_mass=args.Ym,
         emin=args.emin,

@@ -26,7 +26,6 @@ out_cols = {
 def run_NN(
     projectile: str,
     target: str,
-    projectile_mass: int = None,
     target_mass: int = None,
     emin: int = 0.001,
     emax: int = 10,
@@ -42,8 +41,6 @@ def run_NN(
         Projectile symbol
     target : str
         Target symbol
-    projectile_mass : int, optional
-        Projectile mass (amu)
     target_mass : int, optional
         Target mass (amu), by default None
     emin : int, optional
@@ -61,7 +58,6 @@ def run_NN(
     # Generate grid
     df = generate_custom_table(
         projectile,
-        projectile_mass,
         target,
         target_mass,
         emin,

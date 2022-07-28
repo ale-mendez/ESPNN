@@ -13,7 +13,6 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def generate_custom_table(
     projectile_name,
-    projectile_mass,
     target,
     target_mass,
     minE,
@@ -39,7 +38,6 @@ def generate_custom_table(
     df = pd.DataFrame(
         {
             "projectile": num_points * [projectile_name],
-            "projectile_mass": num_points * [projectile_mass],
             "target": num_points * [target],
             "target_mass": num_points * [target_mass],
             "normalized_energy": ener_range,
