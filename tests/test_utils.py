@@ -6,15 +6,14 @@ from ESPNN.utils import generate_custom_table, get_Z_projectile, get_mass, get_m
 
 
 @pytest.mark.parametrize(
-    "projectile, target, target_mass, emin, emax, npoints",
+    "projectile, target, emin, emax, npoints",
     [
-        ("H", "H", 1, 1, 1, 1),
+        ("H", "H", 1, 1, 1),
     ],
 )
 def test_generate_custom_table(
     projectile,
     target,
-    target_mass,
     emin,
     emax,
     npoints,
@@ -25,7 +24,6 @@ def test_generate_custom_table(
     df = generate_custom_table(
         projectile,
         target,
-        target_mass,
         emin,
         emax,
         npoints,
@@ -33,7 +31,6 @@ def test_generate_custom_table(
     df_ = pd.DataFrame({
         'projectile': ['H'],
         'target': ['H'],
-        'target_mass': [1],
         'normalized_energy': [1.0]
     })
     for col in df.columns:

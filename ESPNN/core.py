@@ -26,7 +26,6 @@ out_cols = {
 def run_NN(
     projectile: str,
     target: str,
-    target_mass: int = None,
     emin: int = 0.001,
     emax: int = 10,
     npoints: int = 500,
@@ -41,8 +40,6 @@ def run_NN(
         Projectile symbol
     target : str
         Target symbol
-    target_mass : int, optional
-        Target mass (amu), by default None
     emin : int, optional
         Minimum grid-energy value (MeV/amu), by default 0.001
     emax : int, optional
@@ -59,7 +56,6 @@ def run_NN(
     df = generate_custom_table(
         projectile,
         target,
-        target_mass,
         emin,
         emax,
         npoints,
@@ -71,10 +67,10 @@ def run_NN(
 
     df["projectile_Z"] = df["projectile"].apply(get_Z_projectile)
 
-    if target_mass is None:
-        df["target_mass"] = df["target"].apply(get_mass)
+    df["target_mass"] = df["target"].apply(get_mass)
 
     df["Z_max"] = df["target"].apply(get_max_Z)
+
     columns = [
         "target_mass",
         "projectile_mass",

@@ -5,15 +5,14 @@ from ESPNN.core import run_NN
 
 
 @pytest.mark.parametrize(
-    "projectile_name, target, target_mass, ini_ener, end_ener, num_points, fdir, plot, filename",
+    "projectile_name, target, ini_ener, end_ener, num_points, fdir, plot, filename",
     [
-        ("H", "H", 1, 1, 1, 1, f"tests/test_files/", False, "HH_prediction.dat"),
+        ("H", "H", 1, 1, 1, f"tests/test_files/", False, "HH_prediction.dat"),
     ],
 )
 def test_run_NN(
     projectile_name,
     target,
-    target_mass,
     ini_ener,
     end_ener,
     num_points,
@@ -27,7 +26,6 @@ def test_run_NN(
     run_NN(
         projectile=projectile_name,
         target=target,
-        target_mass=target_mass,
         emin=ini_ener,
         emax=end_ener,
         npoints=num_points,

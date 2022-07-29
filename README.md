@@ -85,11 +85,7 @@ ls -a
 .  ..  HHe_prediction.dat  prediction.ipynb 
 ```
 
-#### Other optional arguments
-
-Optionally, you can modify the target mass:
-
-- ``target_mass``: Mass in amu for the target
+#### Optional arguments
 
 The energy grid used for the ESPNN calculation can be customized with arguments
 
