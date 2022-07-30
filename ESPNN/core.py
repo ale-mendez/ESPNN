@@ -15,7 +15,7 @@ NFOLDS = 5
 SEED = np.random.randint(0, 12347, NFOLDS)
 DEVICE = "cpu"
 BATCH_SIZE = 64
-exp_name = "try0__00_en_ioen_0_bhe_corrected_trtestsplit_tuple"
+exp_name = "try0__00_en_ioen_0_bhe_corrected_trtestsplit_tuple_reduxdrop_nobias_yeslog_standard4all_dbscan2_mid_30_randomsplit_FORCEprojMASSall"
 dir_path = os.path.dirname(os.path.realpath(__file__))
 out_cols = {
     "E": "Energy (MeV/amu)",
@@ -28,7 +28,7 @@ def run_NN(
     target: str,
     emin: int = 0.001,
     emax: int = 10,
-    npoints: int = 500,
+    npoints: int = 150,
     outdir: str = "./",
     plot: bool = True,
 ):
@@ -84,7 +84,7 @@ def run_NN(
     # Transform to logarithmic incident energy
     df_log = df.copy()
     df_log["normalized_energy"] = np.log(df["normalized_energy"].values)
-    params = {"exp_name": exp_name, "model_dir": f"{dir_path}/data/weights"}
+    params = {"exp_name": exp_name, "model_dir": f"{dir_path}/data"}
 
     # Averaging on multiple SEEDS
     for seed in SEED:
@@ -122,24 +122,8 @@ def run_NN(
         df_out = df_out[df_out[out_cols["SP"]] >= 0]
     except:
         pass
-
-    if (target in ('Ta', 'Gd')) and (projectile in ('H', 'He')):
-
-        # 2. Remove unphysical interpolation in the low energy region (up to 0.2 MeV/amu)
-        try:
-            df_lowE = df_out.loc[df_out[out_cols['E']] <= 0.2]
-            x = df_lowE[out_cols['E']]
-            y = df_lowE[out_cols['SP']]
-            dy = np.gradient(y)
-            # find zeros (of derivative)
-            zeros = [x[i + 1] for i, (xi, dyi) in enumerate(zip(x[:-1], dy[:-1])) if (dyi * dy[i + 1] < 0)]
-            # find value of energy at minimum SP value
-            x_ymin = [xi for xi, yi in zip(x, y) if yi == min(y)][0]
-            emin2 = [xi for xi in zeros if (x_ymin * 0.5 <= xi <= x_ymin + x_ymin * 1.5)][0]
-            df_out = df_out[df_out[out_cols["E"]] >= emin2]
-        except:
-            pass
-
+    
+    
     if len(df_out) != len(df_tup):
         new_emin = df_out.iloc[0][0]
         print(f"emin: {emin} => {new_emin:.4f}")
@@ -156,10 +140,12 @@ def plot_prediction(projectile, target, df):
     sp = out_cols['SP']
     title = ' '.join([projectile, "on", target])
     fig, ax = plt.subplots(1, 1, figsize=(8 * 1.1, 6 * 1.1))
-    ax.scatter(df[e], df[sp])
+  
+
+    ax.scatter(df[e], df[sp],marker='.')
     ax.set_title(title, fontsize=20)
     ax.set_xscale("log")
-    ax.set_xlabel(r"Energy (MeV/amu)", fontsize=18)
+    ax.set_xlabel(r"Energy (MeV/amu)", fontsize= 8)
     ax.set_ylabel(r"Electronic Stopping Power (MeV cm$^2$/mg)", fontsize=18)
     ax.tick_params(axis='both', labelsize=14)
     plt.show()
