@@ -71,14 +71,9 @@ A basic tutorial of the ESPNN package usage is given in <a href="https://github.
 - ``projectile``: Chemical formula for the projectile
 - ``target``: Chemical formula for the target
 
-Optionally, you can provide these parameters:
-
-- ``projectile_mass``: Mass in amu for the projectile
-- ``target_mass``: Mass in amu for the target
-
 ```python
 import ESPNN
-ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass=196.966569)
+ESPNN.run_NN(projectile='He', target='Au')
 ```
 
 ![](https://github.com/ale-mendez/ESPNN/blob/master/docs/prediction_files/prediction_2_0.png?raw=true)
@@ -90,13 +85,13 @@ ls -a
 .  ..  HHe_prediction.dat  prediction.ipynb 
 ```
 
-#### Other optional arguments
+#### Optional arguments
 
 The energy grid used for the ESPNN calculation can be customized with arguments
 
 - ``emin``: Minimum energy value in MeV/amu units (default: ``0.001``)
 - ``emax``: Maximum energy value in MeV/amu units (default: ``10``)
-- ``npoints``: Number of grid points (default: ``1000``)
+- ``npoints``: Number of grid points (default: ``500``)
 
 Furthermore, the figure plotting and output-file directory-path can be modified via
 
@@ -104,17 +99,17 @@ Furthermore, the figure plotting and output-file directory-path can be modified 
 - ``outdir``: Path to output folder (default: ``"./"``)
 
 ```python
-ESPNN.run_NN(projectile='He', projectile_mass=4.002602, target='Au', target_mass=196.966569, emin=0.01, emax=1, npoints=50)
+ESPNN.run_NN(projectile='H', target='He', emin=0.002, emax=2, npoints=100)
 ```
 
 ![](https://github.com/ale-mendez/ESPNN/blob/master/docs/prediction_files/prediction_4_0.png?raw=true)
 
 ### From terminal
 
-The ESPNN package can also be used from terminal with a syntaxis analogous to the above given:
+The ESPNN package can also be used from terminal with a syntax analogous to the above given:
 
 ```console
-python -m ESPNN H Au -Ym 196.966569
+python -m ESPNN H Au
 ```
 
 Additional information about the optional arguments input can be obtained with the -h, --help flag:

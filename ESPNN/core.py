@@ -26,11 +26,9 @@ out_cols = {
 def run_NN(
     projectile: str,
     target: str,
-    projectile_mass: int = None,
-    target_mass: int = None,
     emin: int = 0.001,
     emax: int = 10,
-    npoints: int = 1000,
+    npoints: int = 500,
     outdir: str = "./",
     plot: bool = True,
 ):
@@ -42,16 +40,12 @@ def run_NN(
         Projectile symbol
     target : str
         Target symbol
-    projectile_mass : int, optional
-        Projectile mass (amu)
-    target_mass : int, optional
-        Target mass (amu), by default None
     emin : int, optional
         Minimum grid-energy value (MeV/amu), by default 0.001
     emax : int, optional
         Maximum grid-energy value (MeV/amu), by default 10
     npoints : int, optional
-        Number of grid-points, by default 1000
+        Number of grid-points, by default 500
     outdir : str, optional
         _description_, by default "./"
     plot : bool, optional
@@ -61,9 +55,7 @@ def run_NN(
     # Generate grid
     df = generate_custom_table(
         projectile,
-        projectile_mass,
         target,
-        target_mass,
         emin,
         emax,
         npoints,
@@ -75,10 +67,10 @@ def run_NN(
 
     df["projectile_Z"] = df["projectile"].apply(get_Z_projectile)
 
-    if target_mass is None:
-        df["target_mass"] = df["target"].apply(get_mass)
+    df["target_mass"] = df["target"].apply(get_mass)
 
     df["Z_max"] = df["target"].apply(get_max_Z)
+
     columns = [
         "target_mass",
         "projectile_mass",
@@ -150,7 +142,7 @@ def run_NN(
 
     if len(df_out) != len(df_tup):
         new_emin = df_out.iloc[0][0]
-        print(f"emin: {emin} => {new_emin:.3f}")
+        print(f"emin: {emin} => {new_emin:.4f}")
 
     df_out.to_csv(filepath, index=False, sep='\t')
 
