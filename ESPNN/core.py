@@ -122,8 +122,7 @@ def run_NN(
         df_out = df_out[df_out[out_cols["SP"]] >= 0]
     except:
         pass
-    
-    
+
     if len(df_out) != len(df_tup):
         new_emin = df_out.iloc[0][0]
         print(f"emin: {emin} => {new_emin:.4f}")
@@ -140,12 +139,10 @@ def plot_prediction(projectile, target, df):
     sp = out_cols['SP']
     title = ' '.join([projectile, "on", target])
     fig, ax = plt.subplots(1, 1, figsize=(8 * 1.1, 6 * 1.1))
-  
-
-    ax.scatter(df[e], df[sp],marker='.')
+    ax.scatter(df[e], df[sp], marker='.')
     ax.set_title(title, fontsize=20)
     ax.set_xscale("log")
-    ax.set_xlabel(r"Energy (MeV/amu)", fontsize= 8)
+    ax.set_xlabel(r"Energy (MeV/amu)", fontsize=18)
     ax.set_ylabel(r"Electronic Stopping Power (MeV cm$^2$/mg)", fontsize=18)
     ax.tick_params(axis='both', labelsize=14)
     plt.show()

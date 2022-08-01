@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+import joblib
 
 from .dataset import TestDataset
 from .SPNN import Model
@@ -40,15 +41,8 @@ def run_inference(
 
     seed_everything(seed)
 
-    # from sklearn.preprocessing import StandardScaler
+    scaler = joblib.load(f"{model_dir}/preprocess/std_scaler.zip")
 
-
-    # scaler= joblib.load( f"{model_dir}/preprocess/scaler_FOLD{fold}_{exp_name}.zip")
- 
-    import joblib
-
-    scaler = joblib.load( f"{model_dir}/preprocess/std_scaler.zip")
- 
     X_valid = scaler.transform(X_valid)
 
     valid_dataset = TestDataset(X_valid)
