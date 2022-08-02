@@ -3,8 +3,7 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg)](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg) [![codecov](https://codecov.io/gh/ale-mendez/ESPNN/branch/master/graph/badge.svg?token=R49KN0O0I1)](https://codecov.io/gh/ale-mendez/ESPNN) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP)
  <!-- [![Research software impact](http://depsy.org/api/package/pypi/)](http://depsy.org/package/python/) -->
 
-
-The ESPNN is a python-based deep neural network that allows the user to predict the electronic stopping power cross-section for any ion and target[^1] combination for a wide range of incident energies. The deep neural network was trained with many tens of thousands curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the ESPNN in this [publication](https://github.com/ale-mendez/ESPNN-doc).
+The ESPNN is a python-based deep neural network that allows the user to predict the electronic stopping power cross-section for any ion and target[^1] combinations for a wide range of incident energies. The deep neural network was trained on tens of thousands of curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the ESPNN in this [publication](https://github.com/ale-mendez/ESPNN-doc).
 
  <!--
 ### Citation
@@ -91,7 +90,7 @@ The energy grid used for the ESPNN calculation can be customized with arguments
 
 - ``emin``: Minimum energy value in MeV/amu units (default: ``0.001``)
 - ``emax``: Maximum energy value in MeV/amu units (default: ``10``)
-- ``npoints``: Number of grid points (default: ``500``)
+- ``npoints``: Number of grid points (default: ``150``)
 
 Furthermore, the figure plotting and output-file directory-path can be modified via
 
@@ -99,7 +98,7 @@ Furthermore, the figure plotting and output-file directory-path can be modified 
 - ``outdir``: Path to output folder (default: ``"./"``)
 
 ```python
-ESPNN.run_NN(projectile='H', target='He', emin=0.002, emax=2, npoints=100)
+ESPNN.run_NN(projectile='H', target='Ta', emin=0.0001, emax=100, npoints=200)
 ```
 
 ![](https://github.com/ale-mendez/ESPNN/blob/master/docs/prediction_files/prediction_4_0.png?raw=true)

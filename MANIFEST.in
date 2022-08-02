@@ -4,6 +4,7 @@ recursive-include ESPNN *.py
 recursive-include ESPNN *.csv
 recursive-include ESPNN *.txt
 recursive-include ESPNN *.pth
+recursive-include ESPNN *.zip
 
 exclude tox.ini
 exclude requirements.txt

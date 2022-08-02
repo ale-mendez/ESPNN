@@ -38,9 +38,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "-npoints",
         dest="npoints",
-        default=500,
+        default=150,
         type=int,
-        help="Number of grid points (default: 500)"
+        help="Number of grid points (default: 150)"
     )
     parser.add_argument(
         "--plot",
