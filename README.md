@@ -3,8 +3,7 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg)](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg) [![codecov](https://codecov.io/gh/ale-mendez/ESPNN/branch/master/graph/badge.svg?token=R49KN0O0I1)](https://codecov.io/gh/ale-mendez/ESPNN) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP)
  <!-- [![Research software impact](http://depsy.org/api/package/pypi/)](http://depsy.org/package/python/) -->
 
-
-The ESPNN is a python-based deep neural network that allows the user to predict the electronic stopping power cross-section for any ion and target[^1] combination for a wide range of incident energies. The deep neural network was trained with many tens of thousands curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the ESPNN in this [publication](https://github.com/ale-mendez/ESPNN-doc).
+The ESPNN is a python-based deep neural network that allows the user to predict the electronic stopping power cross-section for any ion and target[^1] combinations for a wide range of incident energies. The deep neural network was trained on tens of thousands of curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the ESPNN in this [publication](https://github.com/ale-mendez/ESPNN-doc).
 
  <!--
 ### Citation
