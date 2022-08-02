@@ -19,9 +19,7 @@ year = {2022}
 
 You can use the ESPNN package [remotely](#run-ESPNN-online) or [locally](#install-espnn). Find below all the usage options available.
 
-*Update (7/2022): WORK IN PROGRESS*
-
-We are working on an update for the ESPNN model. We expect the new version to be ready in August 2022. If you notice some troubling features in the stopping power, make sure to post an [issue](https://github.com/ale-mendez/ESPNN/issues) or send us and email[^2].
+If you have problems installing the package or notice troubling features in the stopping power model, make sure to post an [issue](https://github.com/ale-mendez/ESPNN/issues) or send us and email[^2].
 
 ## Run ESPNN online
 
