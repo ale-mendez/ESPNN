@@ -151,3 +151,125 @@ def plot_prediction(projectile, target, df):
     ax.set_ylabel(r"Electronic Stopping Power (MeV cm$^2$/mg)", fontsize=18)
     ax.tick_params(axis='both', labelsize=14)
     plt.show()
+
+
+class run_ESPNN():
+
+    def __init__(
+        self,
+        projectile: str,
+        target: str,
+        emin: int = 0.001,
+        emax: int = 10,
+        npoints: int = 150,
+    ):
+        if projectile is None:
+            raise ValueError("Projectile name is not defined")
+        if target is None:
+            raise ValueError("Projectile name is not defined")
+
+        self.projectile = projectile
+        self.target = target
+        self.emin = emin
+        self.emax = emax
+        self.npoints = npoints
+        self.columns = [
+            "target_mass",
+            "projectile_mass",
+            "Z_max",
+            "projectile_Z",
+            "normalized_energy",
+            "target_ionisation",
+        ]
+        self.df = self.run_NN()
+
+
+    def run_NN(self):
+        # Generate grid
+        df = generate_custom_table(
+            self.projectile,
+            self.target,
+            self.emin,
+            self.emax,
+            self.npoints,
+        )
+
+        df["projectile_mass"] = df["projectile"].apply(get_mass)
+        df["target_ionisation"] = df["target"].apply(get_ionisation_projectile)
+        df["projectile_Z"] = df["projectile"].apply(get_Z_projectile)
+        df["target_mass"] = df["target"].apply(get_mass)
+        df["Z_max"] = df["target"].apply(get_max_Z)
+        df[self.columns] = df[self.columns].astype(float)
+
+        # Transform to logarithmic incident energy
+        df_log = df.copy()
+        df_log["normalized_energy"] = np.log(df["normalized_energy"].values)
+        params = {"exp_name": exp_name, "model_dir": f"{dir_path}/data"}
+
+        # Averaging on multiple SEEDS
+        for seed in SEED:
+            oof_ = run_k_fold(
+                df_log,
+                NFOLDS,
+                seed,
+                device=DEVICE,
+                verbose=True,
+                **params
+            )
+
+        for fold in range(NFOLDS):
+            df_log[f"pred_{fold}"] = oof_[:, fold]
+
+        df["stopping_power"] = np.mean(oof_, axis=1)
+        df["variance"] = np.var(oof_, axis=1)
+        df["system"] = df["projectile"] + "_" + df["target"]
+        for tup in df["system"].unique():
+            df_tup = df.loc[df["system"] == tup]
+        df_tup = df_tup.dropna(axis=0, subset=['stopping_power'])
+        if len(df_tup) == 0:
+            raise ValueError(f"No values found for {self.projectile } + {self.target} collisional system")
+
+        df_out = pd.DataFrame(
+            {
+                out_cols["E"]: df_tup["normalized_energy"],
+                out_cols["SP"]: df_tup["stopping_power"],
+                out_cols["V"]: df_tup["variance"]
+            }
+        )
+
+        # 1. Remove negative stopping power interpolations
+        try:
+            df_out = df_out[df_out[out_cols["SP"]] >= 0]
+        except:
+            pass
+        if len(df_out) != len(df_tup):
+            new_emin = df_out.iloc[0][0]
+            print(f"emin: {self.emin} => {new_emin:.4f}")
+
+        return df_out
+
+
+    def plot_prediction(self):
+    
+        e = out_cols['E']
+        sp = out_cols['SP']
+        v = out_cols['V']
+        upper = self.df[sp] + self.df[v]
+        lower = self.df[sp] - self.df[v]
+        
+        title = ' '.join([self.projectile, "on", self.target])
+        fig, ax = plt.subplots(1, 1, figsize=(8 * 1.1, 6 * 1.1))
+        ax.scatter(self.df[e], self.df[sp], marker='.')
+        ax.fill_between(self.df[e], lower, upper, color='tab:blue', alpha=0.3)
+        ax.set_title(title, fontsize=20)
+        ax.set_xscale("log")
+        ax.set_xlabel(r"Energy (MeV/amu)", fontsize=18)
+        ax.set_ylabel(r"Electronic Stopping Power (MeV cm$^2$/mg)", fontsize=18)
+        ax.tick_params(axis='both', labelsize=14)
+        plt.show()
+
+
+    def save_file(self, outdir="./"):
+        # Save dataframe with prediction to file
+        filepath = os.path.join(outdir, f"{self.projectile + self.target}_prediction.dat")
+        self.df.to_csv(filepath, index=False, sep='\t')
