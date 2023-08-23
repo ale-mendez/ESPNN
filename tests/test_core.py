@@ -33,8 +33,8 @@ def test_run_NN(
         plot=plot
     )
     lines = [
-        'Energy (MeV/amu)	Stopping power (MeV cm2/mg)\n',
-        '1.0	0.7288954973220825\n'
+        'Energy (MeV/amu)	Stopping power (MeV cm2/mg)	variance\n',
+        '1.0	0.6854223012924194	0.0008900894404575866\n'
     ]
     i = 0
     filepath = os.path.join(fdir, filename)
