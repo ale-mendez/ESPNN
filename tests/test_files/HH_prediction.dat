@@ -1,2 +1,2 @@
-Energy (MeV/amu)	Stopping power (MeV cm2/mg)
-1.0	0.7290956497192382
+Energy (MeV/amu)	Stopping power (MeV cm2/mg)	variance
+1.0	0.685422158241272	0.0008900660370466086
