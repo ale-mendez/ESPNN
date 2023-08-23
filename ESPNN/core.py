@@ -102,7 +102,7 @@ def run_NN(
         df_log[f"pred_{fold}"] = oof_[:, fold]
 
     df["stopping_power"] = np.mean(oof_, axis=1)
-    df["varianza"] = np.var(oof_, axis=1)
+    df["variance"] = np.var(oof_, axis=1)
     df["system"] = df["projectile"] + "_" + df["target"]
     for tup in df["system"].unique():
         df_tup = df.loc[df["system"] == tup]
