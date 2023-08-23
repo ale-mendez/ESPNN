@@ -11,6 +11,6 @@ Electronic Stopping Power Neural Network
 # META
 # =============================================================================
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 from ESPNN.core import run_NN
