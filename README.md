@@ -1,10 +1,10 @@
 # ESPNN - Electronic Stopping Power Neural Network
 
- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg)](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg) [![codecov](https://codecov.io/gh/ale-mendez/ESPNN/branch/master/graph/badge.svg?token=R49KN0O0I1)](https://codecov.io/gh/ale-mendez/ESPNN) [![Binder](https://mybinder.org/badge_logo.svg)](https://hub.ovh2.mybinder.org/user/ale-mendez-espnn-tiiyobkb/doc/tree/workflow/prediction.ipynb)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![develstat](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg)](https://github.com/ale-mendez/ESPNN/actions/workflows/espnn_ci.yml/badge.svg) [![codecov](https://codecov.io/gh/ale-mendez/ESPNN/branch/master/graph/badge.svg?token=R49KN0O0I1)](https://codecov.io/gh/ale-mendez/ESPNN) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ale-mendez/ESPNN/master?urlpath=%2Fdoc%2Ftree%2F%2Fworkflow%2Fprediction.ipynb)
  <!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1UCDj0XT_4Ex_Mvp1vurleeeDVcjed6vP) -->
  <!-- [![Research software impact](http://depsy.org/api/package/pypi/)](http://depsy.org/package/python/) -->
 
-The ESPNN is a python-based deep neural network that allows the user to predict the electronic stopping power cross-section for any ion and target[^1] combinations for a wide range of incident energies. The deep neural network was trained on tens of thousands of curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the ESPNN in this [publication](https://github.com/ale-mendez/ESPNN-doc).
+The ESPNN is a Python-based deep neural network that enables users to predict the electronic stopping power cross-section for any ion and target[^1] combinations for a wide range of incident energies. The deep neural network was trained on tens of thousands of curated data points from the [IAEA database](https://www-nds.iaea.org/stopping/). See more details of the ESPNN in this [publication](https://github.com/ale-mendez/ESPNN-doc).
 
  <!--
 ### Citation
@@ -20,15 +20,15 @@ year = {2022}
 
 You can use the ESPNN package [remotely](#run-ESPNN-online) or [locally](#install-espnn). Find below all the usage options available.
 
-If you have problems installing the package or notice troubling features in the stopping power model, make sure to post an [issue](https://github.com/ale-mendez/ESPNN/issues) or send us and email[^2].
+If you encounter problems installing the package or notice troubling features in the stopping power model, make sure to post an [issue](https://github.com/ale-mendez/ESPNN/issues) or send us an email[^2].
 
 ## Run ESPNN online
 
-The ESPNN package can be used remotely in the <a href="https://hub.ovh2.mybinder.org/user/ale-mendez-espnn-tiiyobkb/doc/tree/workflow/prediction.ipynb" target="_blank">Binder</a> platform. There, you'll find a Jupyter notebook with a quick tutorial on how to use the ESPNN. You can also make a copy of the notebook to your own personal Drive and compute the stopping power of any projectile-target combination.
+The ESPNN package can be used remotely in the <a href="https://mybinder.org/v2/gh/ale-mendez/ESPNN/master?urlpath=%2Fdoc%2Ftree%2F%2Fworkflow%2Fprediction.ipynb" target="_blank">Binder</a> platform. There, you'll find a Jupyter notebook with a quick tutorial on how to use the ESPNN. You can compute the stopping power of any projectile-target combination in that Jupyter notebook. The stopping power results are saved in plain text files and can be downloaded by clicking on the file icon in the vertical left menu. *Make sure to download them as they will be lost once the tab is closed.*
 
 ## Install ESPNN
 
-To use the ESPNN in your computer, first you'll need to install it. ESPNN is currently restricted to python 3.7 and 3.8. We recommend using a python virtual environment to this end (for example, see <a href="https://docs.anaconda.com/anaconda/install/index.html" target="_blank">anaconda</a> or <a href="https://virtualenv.pypa.io/en/stable/installation.html" target="_blank">virtualenv</a>). If you are not familiar with virtual environments and would like to rapidly start using python, follow the <a href="https://docs.anaconda.com/anaconda/install/index.html" target="_blank">anaconda</a> indications according to your operating system:
+To use the ESPNN on your computer, first, you'll need to install it. ESPNN is currently restricted to Python 3.7 and 3.8. We recommend using a Python virtual environment to this end (for example, see <a href="https://docs.anaconda.com/anaconda/install/index.html" target="_blank">anaconda</a> or <a href="https://virtualenv.pypa.io/en/stable/installation.html" target="_blank">virtualenv</a>). If you are not familiar with virtual environments and would like to rapidly start using Python, follow the <a href="https://docs.anaconda.com/anaconda/install/index.html" target="_blank">Anaconda</a> instructions according to your operating system:
 
 - <a href="https://docs.anaconda.com/anaconda/install/linux/" target="_blank">Install anaconda in Linux</a>
 - <a href="https://docs.anaconda.com/anaconda/install/windows/" target="_blank">Install anaconda in Windows</a>
@@ -36,7 +36,7 @@ To use the ESPNN in your computer, first you'll need to install it. ESPNN is cur
 
 ### Using pip
 
-The simplest way to install the ESPNN is via pip. Indistinctly, Ubuntu, Windows and macOS users can install the package by typing in the terminal or the anaconda bash terminal:
+The simplest way to install the ESPNN is via pip. Indistinctly, Ubuntu, Windows, and macOS users can install the package by typing in the terminal or the Anaconda bash terminal:
 
 ```console
 pip install ESPNN
@@ -91,7 +91,7 @@ The energy grid used for the ESPNN calculation can be customized with arguments
 - ``emax``: Maximum energy value in MeV/amu units (default: ``10``)
 - ``npoints``: Number of grid points (default: ``150``)
 
-Furthermore, the figure plotting and output-file directory-path can be modified via
+Furthermore, the figure plotting and output-file directory path can be modified via
 
 - ``plot``: Prediction plot (default: ``True``)
 - ``outdir``: Path to output folder (default: ``"./"``)
@@ -104,7 +104,7 @@ ESPNN.run_NN(projectile='H', target='Ta', emin=0.0001, emax=100, npoints=200)
 
 ### From terminal
 
-The ESPNN package can also be used from terminal with a syntax analogous to the above given:
+The ESPNN package can also be used from the terminal with a syntax analogous to the above given:
 
 ```console
 python -m ESPNN H Au
