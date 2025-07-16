@@ -24,7 +24,7 @@ If you encounter problems installing the package or notice troubling features in
 
 ## Run ESPNN online
 
-The ESPNN package can be used remotely in the <a href="https://mybinder.org/v2/gh/ale-mendez/ESPNN/master?urlpath=%2Fdoc%2Ftree%2F%2Fworkflow%2Fprediction.ipynb" target="_blank">Binder</a> platform. There, you'll find a Jupyter notebook with a quick tutorial on how to use the ESPNN. You can compute the stopping power of any projectile-target combination in that Jupyter notebook. The stopping power results are saved in plain text files and can be downloaded by clicking on the file icon in the vertical left menu. *Make sure to download them as they will be lost once the tab is closed.*
+The ESPNN package can be used remotely in the <a href="https://mybinder.org/v2/gh/ale-mendez/ESPNN/master?urlpath=%2Fdoc%2Ftree%2F%2Fworkflow%2Fprediction.ipynb" target="_blank">Binder</a> platform. There, you'll find a Jupyter notebook with a quick tutorial on how to use the ESPNN. You can compute the stopping power of any projectile-target combination in that Jupyter notebook. The stopping power results are saved in plain text files and can be downloaded by clicking on the folder icon in the vertical left menu. *Make sure to download them as they will be lost once the tab is closed.*
 
 ## Install ESPNN
 
