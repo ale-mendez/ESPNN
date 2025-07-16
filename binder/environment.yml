@@ -12,3 +12,4 @@ dependencies:
     - pyvalem==2.5.7
     - scikit-learn==0.24.2
     - joblib==1.0.0
+    - espnn==1.0.0
